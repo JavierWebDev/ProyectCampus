@@ -1,0 +1,10 @@
+{
+    "personas":[
+        {
+            "id": " ",
+            "nombre":"",
+            "email" : "",
+            "idTipoPersona": " "
+        }
+    ]
+}

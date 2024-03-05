@@ -1,0 +1,17 @@
+{
+    "activos":[
+        {
+            "id":"AXX",
+            "CodTransaccion":"TXXX",
+            "nroFormulario": 0,
+            "idMarca":"MXXX",
+            "idCategoria":"CXXX",
+            "idTipo":"TXXX",
+            "valorUnitario": 0,
+            "idProveedor":"PXXX",
+            "nroSerial":" ",
+            "idEmpresaResponsable":"EXXX",
+            "idEstado":0
+        }
+    ]
+}
