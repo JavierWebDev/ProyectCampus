@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js" defer></script>
-    <script src="/JS/sidebar.js"></script>
-    <script src="/App/Components/formActivos.js" defer></script>
+    <script src="/JS/sidebar.js" defer></script>
+    <script type="module" src="/App/Components/formActivos.js" defer></script>
     <link rel="stylesheet" href="css/general.css">
     <title>Active Admin</title>
 </head>
@@ -13,7 +13,7 @@
     <header>
       <div class="navbar">
         <div class="contenedor-logo">
-          <a href="index.html"><div class="img-logo"></div></a>
+          <a onclick="AbrirSideBar()"><div class="img-logo"></div></a>
           <a class="nav-text_link" href="index.html">Administracion Activos</a>
         </div>
       </div>      
@@ -21,23 +21,158 @@
 
 
     <nav id="navbar" class="nav">
+      <div class="cont-close_button">
+        <button id="CloseBtn" class="close-button" onclick="CerrarSideBar()"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" style="fill: rgba(255, 255, 255, 1);transform: ;msFilter:;"><path d="M9.172 16.242 12 13.414l2.828 2.828 1.414-1.414L13.414 12l2.828-2.828-1.414-1.414L12 10.586 9.172 7.758 7.758 9.172 10.586 12l-2.828 2.828z"></path><path d="M12 22c5.514 0 10-4.486 10-10S17.514 2 12 2 2 6.486 2 12s4.486 10 10 10zm0-18c4.411 0 8 3.589 8 8s-3.589 8-8 8-8-3.589-8-8 3.589-8 8-8z"></path></svg></button>
+      </div>
+
       <div class="nav-container">
   
         <div class="aside-item">
-          <a href="#">
-            <span><box-icon name='box' color='#ffffff' ></box-icon></span>
-            <p>Activos</p>
-          </a>
+          <div id="ItemBig" class="item-title" href="#">
+            <a class="item-link" href="#">
+              <div class="flex">
+                <box-icon name='box' color='#ffffff' ></box-icon>
+                <p>Activos</p>
+              </div>
+              <box-icon class="icon-drop" name='chevron-down' color='#ffffff'></box-icon>
+            </a>
+          </div>
 
           <ul class="dropdown">
-            <li><a href="">Añadir</a></li>
-            <li><a href="">Eliminar</a></li>
-            <li><a href="">Editar</a></li>
-            <li><a href="">Listar</a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
           </ul>
 
         </div>
+          
+        <div class="aside-item">
+          <div id="ItemBig" class="item-title" href="#">
+            <a class="item-link" href="#">
+              <div class="flex">
+                <box-icon type='logo' color="#ffffff" name='slack-old'></box-icon>
+                <p>Marcas</p>
+              </div>
+              <box-icon class="icon-drop" name='chevron-down' color='#ffffff'></box-icon>
+            </a>
+          </div>
+
+          <ul class="dropdown">
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
+          </ul>
+
+        </div>
+
+        <div class="aside-item">
+          <div id="ItemBig" class="item-title" href="#">
+            <a class="item-link" href="#">
+              <div class="flex">
+                <box-icon name='user' type='solid' color='#ffffff' ></box-icon>
+                <p>Persona</p>
+              </div>
+              <box-icon class="icon-drop" name='chevron-down' color='#ffffff'></box-icon>
+            </a>
+          </div>
+
+          <ul class="dropdown">
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
+          </ul>
+
+        </div>
+
+        <div class="aside-item">
+          <div id="ItemBig" class="item-title" href="#">
+            <a class="item-link" href="#">
+              <div class="flex">
+                <box-icon color='#ffffff' name='color'></box-icon>
+                <p>Estado</p>
+              </div>
+              <box-icon class="icon-drop" name='chevron-down' color='#ffffff'></box-icon>
+            </a>
+          </div>
+
+          <ul class="dropdown">
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
+          </ul>
+
+        </div>
+
+        <div class="aside-item">
+          <div id="ItemBig" class="item-title" href="#">
+            <a class="item-link" href="#">
+              <div class="flex">
+                <box-icon name='user-pin' type='solid' color='#ffffff' ></box-icon>
+                <p>Personas</p>
+              </div>
+              <box-icon class="icon-drop" name='chevron-down' color='#ffffff'></box-icon>
+            </a>
+          </div>
+
+          <ul class="dropdown">
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
+          </ul>
+
+        </div>
+
+        <div class="aside-item">
+          <div id="ItemBig" class="item-title" href="#">
+            <a class="item-link" href="#">
+              <div class="flex">
+                <box-icon type='solid' color="#ffffff" name='hand'></box-icon>
+                <p>Movimientos</p>
+              </div>
+              <box-icon class="icon-drop" name='chevron-down' color='#ffffff'></box-icon>
+            </a>
+          </div>
+
+          <ul class="dropdown">
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
+          </ul>
+
+        </div>
+
+        <div class="aside-item">
+          <div id="ItemBig" class="item-title" href="#">
+            <a class="item-link" href="#">
+              <div class="flex">
+                <box-icon name='category' type='solid' color='#ffffff' ></box-icon>
+                <p>Categorias</p>
+              </div>
+              <box-icon class="icon-drop" name='chevron-down' color='#ffffff'></box-icon>
+            </a>
+          </div>
+
+          <ul class="dropdown">
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
+            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
+          </ul>
+
+        </div>
+        
   </nav>
+  
+  <main>
+    <add-actives></add-actives>
+  </main>
+
 
 </body>
 </html>

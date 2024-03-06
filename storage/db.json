@@ -1,0 +1,179 @@
+{
+  "actives": [
+    {
+      "id": "AXX",
+      "CodTransaccion": "TXXX",
+      "nroFormulario": 0,
+      "marcaId": "MXXX",
+      "categoriaId": "CXXX",
+      "tipoId": "TXXX",
+      "valorUnitario": 0,
+      "proveedorId": "PXXX",
+      "nroSerial": " ",
+      "empresaResponsableId": "EXXX",
+      "estadoId": 0
+    },
+    {
+      "id": "1",
+      "nombre": "samuel"
+    },
+    {
+      "id": "A5X",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "\"A\"0",
+      "CodTransaccion": "sda",
+      "nroFormulario": "asda",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "asda",
+      "proveedorId": "sad",
+      "nroSerial": "asda",
+      "empresaResponsableId": "ads",
+      "estadoId": ""
+    },
+    {
+      "id": "\"A\"5",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-6",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-7",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-8",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    }
+  ],
+  "assignment": [
+    {
+      "id": " ",
+      "fecha": "",
+      "responsableId": ""
+    }
+  ],
+  "categories": [
+    {
+      "id": "CXXX",
+      "nombre": "XXX"
+    }
+  ],
+  "movement": [
+    {
+      "id": " ",
+      "fecha": "",
+      "activoId": " ",
+      "comentario": " ",
+      "asignacionId": " "
+    }
+  ],
+  "history": [
+    {
+      "id": " ",
+      "activoId": "",
+      "fecha": " ",
+      "responsableId": " ",
+      "estadoId": " "
+    }
+  ],
+  "brand": [
+    {
+      "id": "",
+      "nombre": ""
+    }
+  ],
+  "people": [
+    {
+      "id": " ",
+      "nombre": "",
+      "email": "",
+      "tipopersonaId": " "
+    }
+  ],
+  "suppliers": [
+    {
+      "id": "PXXX",
+      "nombre": "XXX",
+      "email": "XXX"
+    }
+  ],
+  "phone": [
+    {
+      "id": " ",
+      "activoId": "",
+      "nro": 0,
+      "ubicacion": "",
+      "personaId": " "
+    }
+  ],
+  "typeactive": [
+    {
+      "id": " ",
+      "nombre": "",
+      "email": ""
+    }
+  ],
+  "typemovementactive": [
+    {
+      "id": "",
+      "nombre": ""
+    }
+  ],
+  "typeperson": [
+    {
+      "id": "",
+      "nombre": ""
+    }
+  ]
+}
