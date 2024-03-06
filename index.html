@@ -3,24 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js" defer></script>
+    <script src="/JS/sidebar.js"></script>
     <script src="/App/Components/formActivos.js" defer></script>
     <link rel="stylesheet" href="css/general.css">
     <title>Active Admin</title>
 </head>
 <body>
     <header>
-      <nav class="navbar">
+      <div class="navbar">
         <div class="contenedor-logo">
           <a href="index.html"><div class="img-logo"></div></a>
           <a class="nav-text_link" href="index.html">Administracion Activos</a>
         </div>
-      </nav>
+      </div>      
     </header>
 
-    <aside id="BarraLateral" class="side-menu">
-      
 
-    </aside>
+    <nav id="navbar" class="nav">
+      <div class="nav-container">
+  
+        <div class="aside-item">
+          <a href="#">
+            <span><box-icon name='box' color='#ffffff' ></box-icon></span>
+            <p>Activos</p>
+          </a>
+
+          <ul class="dropdown">
+            <li><a href="">Añadir</a></li>
+            <li><a href="">Eliminar</a></li>
+            <li><a href="">Editar</a></li>
+            <li><a href="">Listar</a></li>
+          </ul>
+
+        </div>
+  </nav>
 
 </body>
 </html>

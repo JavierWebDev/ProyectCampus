@@ -1,17 +1,102 @@
 {
-    "activos":[
+    "actives":[
         {
             "id":"AXX",
             "CodTransaccion":"TXXX",
             "nroFormulario": 0,
-            "idMarca":"MXXX",
-            "idCategoria":"CXXX",
-            "idTipo":"TXXX",
+            "marcaId":"MXXX",
+            "categoriaId":"CXXX",
+            "tipoId":"TXXX",
             "valorUnitario": 0,
-            "idProveedor":"PXXX",
+            "proveedorId":"PXXX",
             "nroSerial":" ",
-            "idEmpresaResponsable":"EXXX",
-            "idEstado":0
+            "empresaResponsableId":"EXXX",
+            "estadoId":0
+        }
+    ],
+    "assignment":[
+        {
+            "id": " ",
+            "fecha": "",
+            "responsableId": ""
+        }
+    ],
+    "categories":[
+        {
+            "id":"CXXX",
+            "nombre":"XXX"
+        }
+
+    ],
+    "movement":[
+        {
+            "id": " ",
+            "fecha": "",
+            "activoId": " ",
+            "comentario" : " ",
+            "asignacionId": " "
+        }
+    ],
+    "history":[
+        {
+            "id": " ",
+            "activoId": "",
+            "fecha": " ",
+            "responsableId": " ",
+            "estadoId": " "
+        }
+    ],
+    "brand":[
+        {
+            "id": "",
+            "nombre": ""
+        }
+    ],
+    "people":[
+        {
+            "id": " ",
+            "nombre":"",
+            "email" : "",
+            "tipopersonaId": " "
+        }
+    ],
+    "suppliers":[
+        {
+            "id":"PXXX",
+            "nombre":"XXX",
+            "email":"XXX"
+        }
+    ],
+    "phone":[
+        {
+            "id": " ",
+            "activoId": "",
+            "nro":0,
+            "ubicacion": "",
+            "personaId": " "
+        }
+    ],
+    "typeactive":[
+        {
+            "id": " ",
+            "nombre":"",
+            "email": ""
+        }
+    ],
+    "typemovementactive":[
+        {
+            "id": "",
+            "nombre": ""
+        }
+    ],
+    "typeperson":[
+        {
+            "id": "",
+            "nombre": ""
         }
     ]
+
+
+
+
 }
