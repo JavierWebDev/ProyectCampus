@@ -2,12 +2,15 @@ const myHeaders = new Headers({
     "Content-Type": "application/json"
 });
 
-const showData = async (data, URL_API) => {
+export const setId = async (URL_API, endpoint) => {
+    console.log(showData(URL_API, endpoint))
+}
+
+const showData = async (URL_API, id) => {
     try {
-        return await fetch(`${URL_API}`, {
+        return await fetch(`${URL_API}/${id}`, {
             method: "GET",
-            headers: myHeaders,
-            body: JSON.stringify(data)
+            headers: myHeaders
         });
     } catch (error) {
         console.error('Error en la solicitud GET:', error.message);
@@ -27,12 +30,12 @@ export const postData = async (data, URL_API) => {
 const updateData = async (newdata, URL_API) => {
     try {
         return await fetch(`${URL_API}`, {
-            method: "PUT",
+            method: "PATCH",
             headers: myHeaders,
             body: JSON.stringify(newdata)
         });
     } catch (error) {
-        console.error('Error en la solicitud PUT:', error.message);
+        console.error('Error en la solicitud PATCH:', error.message);
     }
 }
 export const deleteData = async (data, URL_API) => {

@@ -359,4 +359,10 @@ header {
     color: white;
     border-radius: 10px;
     border: 2px solid var(--colorTerciario);
+
+    transition: background-color 0.3s ease;
+}
+.input-anadir:hover {
+    background-color: var(--colorQuinto);
+    border: 2px solid var(--colorTerciario);
 }

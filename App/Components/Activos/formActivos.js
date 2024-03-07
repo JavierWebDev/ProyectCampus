@@ -1,4 +1,4 @@
-import { postData  } from '/../../../APIs/actives.js';
+import { postData, setId  } from '/../../../APIs/actives.js';
 
 export class addActives extends HTMLElement {
     constructor() {
@@ -36,7 +36,7 @@ export class addActives extends HTMLElement {
               <h3>Nro serial </h3>
               <input class="input-form" id="serialActivo" placeholder=" digita el codigo de la transaccion ">
             </div> 
-
+            <tables></tables> 
             <div class="cont-input">
               <h3>Empresa responsable </h3>
               <input class="input-form" id="empresaResponsable" placeholder=" digita el codigo de la transaccion ">
@@ -70,7 +70,7 @@ export class addActives extends HTMLElement {
 
 
           </div>
-          <input class="input-anadir" type="submit" value="AÑADIR"> 
+          <button id="BtnEnviarForm" class="input-anadir">ENVIAR</button>
         </form>
       </section>
         `
@@ -78,10 +78,12 @@ export class addActives extends HTMLElement {
     
     addActive= ()=> {
         document.addEventListener('DOMContentLoaded', function(){
-            const URL_API = 'http://localhost:3000/actives'
+            const URL_API = 'http://localhost:3000'
+            const endpoint = 'actives'
             const activeForm = document.querySelector('#activesForm')
+            const BtnEnviar = document.querySelector('#BtnEnviarForm')
 
-            activeForm.addEventListener('submit', (e) => {
+            BtnEnviarForm.addEventListener('click', (e) => {
                 e.preventDefault();
         
                 const codTransaccion = activeForm.querySelector('#codigoTransaccion').value;
@@ -92,24 +94,20 @@ export class addActives extends HTMLElement {
                 const valorUnitario = activeForm.querySelector('#valorActivo').value;
                 const proveedorId = activeForm.querySelector('#proveedorActivo').value;
                 const nroSerial = activeForm.querySelector('#serialActivo').value;
-                const empresaResponsable = activeForm.querySelector('#empresaResponsable').value;
+                const empresaResponsale = activeForm.querySelector('#empresaResponsable').value;
                 const estadoActivo = activeForm.querySelector('#estadoActivo').value;
                 let newId = 0
+
+                setId(URL_API, endpoint)
 
                 fetch(`${URL_API}`)
                     .then(response => response.json())
                     .then(activesData =>{
                         newId = activesData.length + 1;
-                        let aux = "0" 
 
-                        if (newId < 10) {
-                            let newIds = `0${newId}`
-                        } else {
-                            let newIds = `${newId}`
-                        }
 
                         const data = {
-                            "id": `A-${newIds}`,
+                            "id": `A-${newId}`,
                             "CodTransaccion": codTransaccion,
                             "nroFormulario": nroFormulario,
                             "marcaId": marcaId,

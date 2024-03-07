@@ -94,6 +94,58 @@
       "nroSerial": "",
       "empresaResponsableId": "",
       "estadoId": ""
+    },
+    {
+      "id": "FpiEDkQ",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-10",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": {},
+      "estadoId": ""
+    },
+    {
+      "id": "A-11",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": {},
+      "estadoId": ""
+    },
+    {
+      "id": "A-12",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": {},
+      "estadoId": ""
     }
   ],
   "assignment": [

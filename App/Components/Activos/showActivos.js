@@ -1,6 +1,6 @@
 import { showData  } from '/../../../APIs/actives.js';
 
-export class addActives extends HTMLElement {
+export class showActives extends HTMLElement {
     constructor() {
         super();
         this.render();
@@ -8,62 +8,34 @@ export class addActives extends HTMLElement {
     }
     render() {
         this.innerHTML = /* html */ `
-        <div id="javierchupapene"></div>
+        <h2>Que Activo desea ver: </h2>
+        <input class="input-form" id="activoBuscado" placeholder=" digita el nombre del producto">
+        <button id="buscarActivo"></button>
         `
     }
     
     addActive= ()=> {
         document.addEventListener('DOMContentLoaded', function(){
             const URL_API = 'http://localhost:3000/actives'
-            const activeForm = document.querySelector('#activesForm')
+            const activoBuscado = document.querySelector('#activoBuscado')
+            const buscarActivo = document.querySelector('#buscarActivo')
 
-            activeForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-        
-                const codTransaccion = activeForm.querySelector('#codigoTransaccion').value;
-                const nroFormulario = activeForm.querySelector('#nroFormulario').value;
-                const marcaId = activeForm.querySelector('#marcaActivo').value;
-                const categoriaId = activeForm.querySelector('#categoriaActivo').value;
-                const tipoId = activeForm.querySelector('#tipoActivo').value;
-                const valorUnitario = activeForm.querySelector('#valorActivo').value;
-                const proveedorId = activeForm.querySelector('#proveedorActivo').value;
-                const nroSerial = activeForm.querySelector('#serialActivo').value;
-                const empresaResponsable = activeForm.querySelector('#empresaResponsable').value;
-                const estadoActivo = activeForm.querySelector('#estadoActivo').value;
-                let newId = 0
+            buscarActivo.addEventListener('click', (e) =>{
+                e.preventDefault()
+                const activoEncontrado = showData(URL_API, buscarActivo)
+                function searchData(){
+                    if (activoEncontrado !== undefined &&  activoEncontrado != null){
+                }
+                
+            })
 
-                fetch(`${URL_API}`)
-                    .then(response => response.json())
-                    .then(activesData =>{
-                        newId = activesData.length + 1;
-                        let aux = "0" 
 
-                        if (newId < 10) {
-                            let newIds = `0${newId}`
-                        } else {
-                            let newIds = `${newId}`
-                        }
 
-                        const data = {
-                            "id": `A-${newIds}`,
-                            "CodTransaccion": codTransaccion,
-                            "nroFormulario": nroFormulario,
-                            "marcaId": marcaId,
-                            "categoriaId": categoriaId,
-                            "tipoId": tipoId,
-                            "valorUnitario": valorUnitario,
-                            "proveedorId": proveedorId,
-                            "nroSerial": nroSerial,
-                            "empresaResponsableId": empresaResponsable,
-                            "estadoId": estadoActivo
-                        }  
-                        postData( data,URL_API )
-                    })
                 
             });
               
             
-        })
+        
     }
 }
-customElements.define("add-actives",addActives)
+customElements.define("show-actives",showActives)
