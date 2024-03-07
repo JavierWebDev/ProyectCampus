@@ -58,7 +58,7 @@
 
 body {
     font-family: var(--fuente);
-    background-color: var(--colorTerciario);
+    background-color: var(--colorSecundario);
 }
 
 a {
@@ -224,6 +224,7 @@ header {
     border-bottom: solid 2px var(--colorPrimario);
     align-items: center;
 
+    transition: background-color 0.3s ease;
 }
 .item-title:hover{
     background-color: var(--colorPrimario);
@@ -248,8 +249,7 @@ header {
     padding: 15px;
     border: solid 2px var(--colorPrimario);
 
-
-
+    transition: scale 0.2s ease;
 }
 .dropdown-item:hover {
     scale: 1.02;
@@ -268,4 +268,95 @@ header {
     .nav {
         width: 20%;
     }
+}
+
+/* FORMULARIOS */
+
+.contenedor-formulario {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cont-form {
+    width: 50%;
+    background-color: var(--colorCuaternario);
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.cont-form_inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 10px;
+    padding: 20px;
+    background-color: var(--colorQuinto);
+    border-radius: 10px;
+}
+
+.cont-input {
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    gap: 10px;
+    color: white;
+    border-top: 2px solid var(--colorCuaternario);
+    border-bottom: 2px solid var(--colorCuaternario);
+    margin: 5px;
+    padding: 10px;
+}
+.input-form{
+    width: 80%;
+    margin: auto;
+    padding: 5px;
+    font-size: 1.05rem;
+    border-radius: 10px;
+    border: 2px solid var(--colorPrimario);
+}
+
+.contenedor-inputs_seleccionar {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap:20px;
+}
+
+.cont-input_select {
+    width: 100%;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    text-align: center;
+    color: white;
+    background-color: var(--colorSecundario);
+    padding: 10px;
+    align-items: center;
+    border-radius: 10px;
+
+}
+
+.input-seleccionar {
+    width: 70%;
+}
+.titulo-select {
+    text-decoration: underline;
+}
+
+.input-anadir {
+    margin: 20px auto;
+    padding: 10px;
+    width: 50%;
+    background-color: var(--colorPrimario);
+    color: white;
+    border-radius: 10px;
+    border: 2px solid var(--colorTerciario);
 }

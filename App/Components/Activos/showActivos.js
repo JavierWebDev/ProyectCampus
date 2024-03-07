@@ -1,4 +1,4 @@
-import { postData ,deleteData  } from '/../../APIs/actives.js';
+import { showData  } from '/../../../APIs/actives.js';
 
 export class addActives extends HTMLElement {
     constructor() {
@@ -8,6 +8,7 @@ export class addActives extends HTMLElement {
     }
     render() {
         this.innerHTML = /* html */ `
+        <div id="javierchupapene"></div>
         `
     }
     
@@ -15,7 +16,6 @@ export class addActives extends HTMLElement {
         document.addEventListener('DOMContentLoaded', function(){
             const URL_API = 'http://localhost:3000/actives'
             const activeForm = document.querySelector('#activesForm')
-            const containergei = dic
 
             activeForm.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -67,4 +67,3 @@ export class addActives extends HTMLElement {
     }
 }
 customElements.define("add-actives",addActives)
-

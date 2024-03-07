@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js" defer></script>
     <script src="/JS/sidebar.js" defer></script>
-    <script type="module" src="/App/Components/formActivos.js" defer></script>
+    <script type="module" src="/App/Components/Activos/formActivos.js" defer></script>
     <link rel="stylesheet" href="css/general.css">
     <title>Active Admin</title>
 </head>
@@ -28,7 +28,7 @@
       <div class="nav-container">
   
         <div class="aside-item">
-          <div id="ItemBig" class="item-title" href="#">
+          <div class="item-title" href="#">
             <a class="item-link" href="#">
               <div class="flex">
                 <box-icon name='box' color='#ffffff' ></box-icon>
@@ -39,10 +39,10 @@
           </div>
 
           <ul class="dropdown">
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
+            <li class="dropdown-item"><a id="BtnAddActive" class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
+            <li class="dropdown-item"><a id="BtnDeleteActive" class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
+            <li class="dropdown-item"><a id="BtnEditActive" class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
+            <li class="dropdown-item"><a id="BtnListActive" class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
           </ul>
 
         </div>
@@ -59,10 +59,10 @@
           </div>
 
           <ul class="dropdown">
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
+            <li class="dropdown-item"><a id="BtnAddBrands" class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
+            <li class="dropdown-item"><a id="BtnDeleteBrands" class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
+            <li class="dropdown-item"><a id="BtnEditBrands" class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
+            <li class="dropdown-item"><a id="BtnListBrands" class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
           </ul>
 
         </div>
@@ -79,10 +79,10 @@
           </div>
 
           <ul class="dropdown">
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
+            <li class="dropdown-item"><a id="BtnAddPerson" class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
+            <li class="dropdown-item"><a id="BtnDeletePerson" class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
+            <li class="dropdown-item"><a id="BtnEditPerson" class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
+            <li class="dropdown-item"><a id="BtnListPerson" class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
           </ul>
 
         </div>
@@ -99,10 +99,10 @@
           </div>
 
           <ul class="dropdown">
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
+            <li class="dropdown-item"><a id="BtnAddState" class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
+            <li class="dropdown-item"><a id="BtnDeleteState" class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
+            <li class="dropdown-item"><a id="BtnEditState" class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
+            <li class="dropdown-item"><a id="BtnListState" class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
           </ul>
 
         </div>
@@ -112,17 +112,17 @@
             <a class="item-link" href="#">
               <div class="flex">
                 <box-icon name='user-pin' type='solid' color='#ffffff' ></box-icon>
-                <p>Personas</p>
+                <p>Roles</p>
               </div>
               <box-icon class="icon-drop" name='chevron-down' color='#ffffff'></box-icon>
             </a>
           </div>
 
           <ul class="dropdown">
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
+            <li class="dropdown-item"><a id="BtnAddRoles" class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
+            <li class="dropdown-item"><a id="BtnDeleteRoles" class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
+            <li class="dropdown-item"><a id="BtnEditRoles" class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
+            <li class="dropdown-item"><a id="BtnListRoles" class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
           </ul>
 
         </div>
@@ -139,10 +139,10 @@
           </div>
 
           <ul class="dropdown">
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
+            <li class="dropdown-item"><a id="BtnAddMovements" class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
+            <li class="dropdown-item"><a id="BtnDeleteMovements" class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
+            <li class="dropdown-item"><a id="BtnEditMovements" class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
+            <li class="dropdown-item"><a id="BtnListMovements" class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
           </ul>
 
         </div>
@@ -159,10 +159,10 @@
           </div>
 
           <ul class="dropdown">
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
-            <li class="dropdown-item"><a class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
+            <li class="dropdown-item"><a id="BtnAddCategories" class="link-dropdown_center" href=""><box-icon name='add-to-queue' color='#ffffff' ></box-icon><p>Añadir</p></a></li>
+            <li class="dropdown-item"><a id="BtnDeleteCategories" class="link-dropdown_center" href=""><box-icon name='trash' color='#ffffff' ></box-icon><p>Eliminar</p></a></li>
+            <li class="dropdown-item"><a id="BtnEditCategories" class="link-dropdown_center" href=""><box-icon name='edit-alt' color='#ffffff' ></box-icon><p>Editar</p></a></li>
+            <li class="dropdown-item"><a id="BtnListCategories" class="link-dropdown_center" href=""><box-icon name='list-ul' color='#ffffff' ></box-icon><p>Listar</p></a></li>
           </ul>
 
         </div>
@@ -171,6 +171,8 @@
   
   <main>
     <add-actives></add-actives>
+
+
   </main>
 
 

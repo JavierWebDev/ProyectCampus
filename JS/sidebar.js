@@ -1,5 +1,5 @@
 const Sidebar = document.getElementById("navbar")
-const BotonesTitulos = document.querySelectorAll("#ItemBig")
+const BotonesTitulos = document.querySelectorAll(".item-title")
 const Dropdowns = document.querySelectorAll(".dropdown")
 
 function AbrirSideBar() {
