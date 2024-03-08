@@ -1,4 +1,4 @@
-const URL_API = "http://localhost:3000";
+const URL_API = "http://localhost:3001";
 
 const myHeaders = new Headers({
     "Content-Type": "application/json"
@@ -14,9 +14,18 @@ const getData = async(endpoint) => {
 	}
     
 }
-const updateData = async (newData, URL_API, endpoint) => {
+const getElementData = async(endpoint, id) => {
     try {
-        const response = await fetch(`${URL_API}/${endpoint}`, {
+        return await fetch(`${URL_API}/${endpoint}/${id}`);
+		// Si la respuesta es correcta
+	} catch(error){
+        console.log(error);
+	}
+    
+}
+const updateData = async (newData, endpoint, id) => {
+    try {
+        const response = await fetch(`${URL_API}/${endpoint}/${id}`, {
             method: "PATCH",
             headers: myHeaders,
             body: JSON.stringify(newData)
@@ -44,9 +53,9 @@ const postData = async (datos, id) => {
         console.error('Error en la solicitud POST:', error.message);
     }
 }
-const deleteData = async (URL_API, id) => {
+const deleteData = async (endpoint, id) => {
     try {
-        return await fetch(`${URL_API}/${id}`, {
+        return await fetch(`${URL_API}/${endpoint}/${id}`, {
             method: "DELETE",
             headers: myHeaders,
         });
@@ -55,5 +64,5 @@ const deleteData = async (URL_API, id) => {
     }
 }
 export {
-    deleteData as deleteData, getData as getData, postData as postDatas, updateData as updateData
+    deleteData as deleteData, getData as getData, postData as postDatas, updateData as updateData, getElementData as getElementData
 };

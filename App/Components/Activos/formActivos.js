@@ -14,7 +14,9 @@ export class addActives extends HTMLElement {
         <form id="activesForm" class="cont-form">
         
         <div class="cont-form_inputs">
-          
+          <h1 id="ShowID"></h1>    
+
+
             <div  class="cont-input">
               <h3>Codigo de la transacción </h3>
               <input class="input-form" name="codigoTransaccion"  id="codigoTransaccion" placeholder=" digita el codigo de la transaccion ">
@@ -82,8 +84,10 @@ export class addActives extends HTMLElement {
 
     showData = () => {
       const endpoint = 'actives'
+      const showID = document.querySelector("#ShowID")
+      const inputs = document.querySelectorAll(".input-seleccionar .input-form")
 
-      document.querySelector('#BtnEnviarForm').addEventListener("click", () => {
+      addEventListener("DOMContentLoaded", () => {
         getData(endpoint)
         .then(response => {
           if (response.ok) {
@@ -94,34 +98,19 @@ export class addActives extends HTMLElement {
         }
         })
         .then(responseData => {
-          return responseData
+          showID.innerHTML = `A-${responseData.length + 1}`
         })
       })
     } 
 
     saveData = () =>{
-      
       const frmRegistro = document.querySelector('#activesForm');
       const endpoint = 'actives'
-      
+      const showID = document.querySelector("#ShowID")
 
       document.querySelector('#BtnEnviarForm').addEventListener("click",(e) =>{
-        const datos = Object.fromEntries(new FormData(frmRegistro).entries());
-
-        getData(endpoint)
-        .then(response => {
-          if (response.ok) {
-            return response.json(); // Devolver la respuesta como JSON
-        } else {
-            // Si la respuesta no fue exitosa, lanzar una excepción
-            throw new Error(`Error en la solicitud POST: ${response.status} - ${response.statusText}`);
-        }
-        })
-        .then(responseData => {
-          return responseData
-
-        })
-
+        let datos = Object.fromEntries(new FormData(frmRegistro).entries());
+         datos.id = showID.innerHTML
 
 
           postDatas(datos, endpoint)
@@ -134,10 +123,16 @@ export class addActives extends HTMLElement {
                     throw new Error(`Error en la solicitud POST: ${response.status} - ${response.statusText}`);
                 }
             })
-            .then(responseData => {
-                // Hacer algo con la respuesta exitosa si es necesario
-                console(responseData)
-            })
+             .then(responseData => {
+                 if (responseData.id === showID.innerHTML) {
+                  getData(endpoint)
+                  .then(responseData => {
+                    showID.innerHTML = `${responseData.length}`
+                  })
+                 
+                 }
+
+              })
             .catch(error => {
                 console.error('Error en la solicitud POST:', error.message);
                 // Puedes manejar el error de otra manera si es necesario
@@ -145,11 +140,7 @@ export class addActives extends HTMLElement {
           e.stopImmediatePropagation();
           e.preventDefault();
       })
+   this.showData()  
 }
-
-
-
-
 }
 customElements.define("add-actives",addActives)
-

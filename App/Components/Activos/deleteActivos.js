@@ -1,10 +1,10 @@
-import { deleteData, showData } from '/../../APIs/actives.js';
+import { deleteData, getElementData } from '/../../APIs/actives.js';
 
 export class deleteActives extends HTMLElement {
     constructor() {
         super();
         this.render();
-        this.addActive();
+        this.deleteActive();
     }
 
     render() {
@@ -15,24 +15,36 @@ export class deleteActives extends HTMLElement {
         `;
     }
     
-    addActive() {
-        const URL_API = 'http://localhost:3000/actives';
+    deleteActive() {
+        const endpoint = 'actives'
         const buscarActivo = this.querySelector('#buscarActivo');
         buscarActivo.addEventListener('click', async (e) => {
             e.preventDefault();
             const activoBuscado = this.querySelector('#activoBuscado').value;
-            try {
-                const activoEncontrado = await showData(URL_API, activoBuscado);
-                if (activoEncontrado !== undefined && activoEncontrado !== null) {
-                    await deleteData(URL_API, activoBuscado);
-                    console.log("Activo eliminado correctamente");
+            getElementData(endpoint,activoBuscado)
+            .then(response => {
+                 // Verificar si la solicitud fue exitosa (código de respuesta en el rango 200)
+                if (response.ok) {
+                    return response.json(); // Devolver la respuesta como JSON
                 } else {
-                    console.log("Activo no encontrado");
+                    // Si la respuesta no fue exitosa, lanzar una excepción
+                    throw new Error(`Error en la solicitud POST: ${response.status} - ${response.statusText}`);
                 }
-            } catch (error) {
+            })
+            .then(responseData => {
+                    const activoEncontrado = responseData.find(activo => activo === activoBuscado);
+                    if (activoEncontrado !== undefined && activoEncontrado !== null) {
+                        deleteData( endpoint, activoBuscado);
+                        console.log("Activo eliminado correctamente");
+                    } else {
+                        console.log("Activo no encontrado");
+                    }
+                
+            })
+            .catch (error =>  {
                 console.error('Error:', error.message);
-            }
-        }); 
+            })
+    }); 
     }
 }
 customElements.define("delete-actives", deleteActives);
