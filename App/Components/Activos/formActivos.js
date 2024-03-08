@@ -15,12 +15,10 @@ export class addActives extends HTMLElement {
         
         <div class="cont-form_inputs">
           
-            <API>
-              <div  class="cont-input">
-                <h3>Codigo de la transacción </h3>
-                <input class="input-form" name="codigoTransaccion"  id="codigoTransaccion" placeholder=" digita el codigo de la transaccion ">
-              </div>
-            </API>
+            <div  class="cont-input">
+              <h3>Codigo de la transacción </h3>
+              <input class="input-form" name="codigoTransaccion"  id="codigoTransaccion" placeholder=" digita el codigo de la transaccion ">
+            </div>
             
             <div class="cont-input">
               <h3>Nro. de formulario </h3>
