@@ -1,6 +1,6 @@
 import {  showData  } from '/../../APIs/actives.js';
 
-export class showActives extends HTMLElement {
+export class actualizarActives extends HTMLElement {
     constructor() {
         super();
         this.render();
@@ -37,4 +37,4 @@ export class showActives extends HTMLElement {
             });
     }
 }
-customElements.define("show-actives",showActives)
+customElements.define("actualizar-actives",actualizarActives)

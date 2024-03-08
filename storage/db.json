@@ -1,24 +1,7 @@
 {
   "actives": [
     {
-      "id": "AXX",
-      "CodTransaccion": "TXXX",
-      "nroFormulario": 0,
-      "marcaId": "MXXX",
-      "categoriaId": "CXXX",
-      "tipoId": "TXXX",
-      "valorUnitario": 0,
-      "proveedorId": "PXXX",
-      "nroSerial": " ",
-      "empresaResponsableId": "EXXX",
-      "estadoId": 0
-    },
-    {
-      "id": "1",
-      "nombre": "samuel"
-    },
-    {
-      "id": "A5X",
+      "id": "A-03",
       "CodTransaccion": "",
       "nroFormulario": "",
       "marcaId": "",
@@ -31,20 +14,7 @@
       "estadoId": ""
     },
     {
-      "id": "\"A\"0",
-      "CodTransaccion": "sda",
-      "nroFormulario": "asda",
-      "marcaId": "",
-      "categoriaId": "",
-      "tipoId": "",
-      "valorUnitario": "asda",
-      "proveedorId": "sad",
-      "nroSerial": "asda",
-      "empresaResponsableId": "ads",
-      "estadoId": ""
-    },
-    {
-      "id": "\"A\"5",
+      "id": "A-03",
       "CodTransaccion": "",
       "nroFormulario": "",
       "marcaId": "",
@@ -57,7 +27,7 @@
       "estadoId": ""
     },
     {
-      "id": "A-6",
+      "id": "A-04",
       "CodTransaccion": "",
       "nroFormulario": "",
       "marcaId": "",
@@ -70,7 +40,7 @@
       "estadoId": ""
     },
     {
-      "id": "A-7",
+      "id": "A-04",
       "CodTransaccion": "",
       "nroFormulario": "",
       "marcaId": "",
@@ -83,7 +53,7 @@
       "estadoId": ""
     },
     {
-      "id": "A-8",
+      "id": "A-03",
       "CodTransaccion": "",
       "nroFormulario": "",
       "marcaId": "",
@@ -96,7 +66,7 @@
       "estadoId": ""
     },
     {
-      "id": "FpiEDkQ",
+      "id": "A-03",
       "CodTransaccion": "",
       "nroFormulario": "",
       "marcaId": "",
@@ -109,7 +79,7 @@
       "estadoId": ""
     },
     {
-      "id": "A-10",
+      "id": "A-03",
       "CodTransaccion": "",
       "nroFormulario": "",
       "marcaId": "",
@@ -118,11 +88,11 @@
       "valorUnitario": "",
       "proveedorId": "",
       "nroSerial": "",
-      "empresaResponsableId": {},
+      "empresaResponsableId": "",
       "estadoId": ""
     },
     {
-      "id": "A-11",
+      "id": "A-03",
       "CodTransaccion": "",
       "nroFormulario": "",
       "marcaId": "",
@@ -131,11 +101,11 @@
       "valorUnitario": "",
       "proveedorId": "",
       "nroSerial": "",
-      "empresaResponsableId": {},
+      "empresaResponsableId": "",
       "estadoId": ""
     },
     {
-      "id": "A-12",
+      "id": "A-03",
       "CodTransaccion": "",
       "nroFormulario": "",
       "marcaId": "",
@@ -144,8 +114,473 @@
       "valorUnitario": "",
       "proveedorId": "",
       "nroSerial": "",
-      "empresaResponsableId": {},
+      "empresaResponsableId": "",
       "estadoId": ""
+    },
+    {
+      "id": "A-03",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-03",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-03",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-02",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-02",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-0",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-0",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-0",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-0",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-0",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-NaN",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-NaN",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-[object Promise]1",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-[object Promise]1",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "A-async () => { const data = await showData(URL_ID, endpoint); return data}1",
+      "CodTransaccion": "",
+      "nroFormulario": "",
+      "marcaId": "",
+      "categoriaId": "",
+      "tipoId": "",
+      "valorUnitario": "",
+      "proveedorId": "",
+      "nroSerial": "",
+      "empresaResponsableId": "",
+      "estadoId": ""
+    },
+    {
+      "id": "af27",
+      "codigoTransaccion": "jhygj",
+      "nroFormulario": "jhbj",
+      "valorActivo": "jhjh",
+      "proveedorActivo": "jhjh",
+      "serialActivo": "jhjh",
+      "empresaResponsable": "khklh"
+    },
+    {
+      "id": "684d",
+      "codigoTransaccion": "gfhgfh",
+      "nroFormulario": "dghfgh",
+      "valorActivo": "fgh",
+      "proveedorActivo": "fghgf",
+      "serialActivo": "fghfg",
+      "empresaResponsable": "gfhgfh"
+    },
+    {
+      "id": "4ff1",
+      "codigoTransaccion": "fghfgh",
+      "nroFormulario": "fghfg",
+      "valorActivo": "fghfg",
+      "proveedorActivo": "fghfg",
+      "serialActivo": "fghfg",
+      "empresaResponsable": "fghfgh"
+    },
+    {
+      "id": "1872",
+      "codigoTransaccion": "dg",
+      "nroFormulario": "fgh",
+      "valorActivo": "fgh",
+      "proveedorActivo": "gfh",
+      "serialActivo": "gfh",
+      "empresaResponsable": "fghgf"
+    },
+    {
+      "id": "02ee",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "1478",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "f89e",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "68a3",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "6b8a",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "e3f6",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "2797",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "fe39",
+      "codigoTransaccion": "thygff",
+      "nroFormulario": "ghfgh",
+      "valorActivo": "fgh",
+      "proveedorActivo": "fgh",
+      "serialActivo": "fghf",
+      "empresaResponsable": "fgh"
+    },
+    {
+      "id": "b1fb",
+      "codigoTransaccion": "fghfgh",
+      "nroFormulario": "dfgdf",
+      "valorActivo": "dfgfd",
+      "proveedorActivo": "fdgdfg",
+      "serialActivo": "dfgdfg",
+      "empresaResponsable": "dfgdfg"
+    },
+    {
+      "id": "e365",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "c087",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "f024",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "715e",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "64d3",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "a342",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "8c10",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "7474",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "a28b",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "110e",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "700f",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "4945",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "8769",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "0cdd",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "8ba0",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "64a4",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
+    },
+    {
+      "id": "64e0",
+      "codigoTransaccion": "",
+      "nroFormulario": "",
+      "valorActivo": "",
+      "proveedorActivo": "",
+      "serialActivo": "",
+      "empresaResponsable": ""
     }
   ],
   "assignment": [

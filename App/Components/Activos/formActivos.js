@@ -1,10 +1,10 @@
-import { postData, setId  } from '/../../../APIs/actives.js';
+import { postDatas, getData} from '/../../../APIs/actives.js';
 
 export class addActives extends HTMLElement {
     constructor() {
         super();
         this.render();
-        this.addActive();
+        this.saveData();
     }
     render() {
         this.innerHTML = /* html */ `
@@ -14,119 +14,115 @@ export class addActives extends HTMLElement {
           <div class="cont-form_inputs">
             <div  class="cont-input">
               <h3>Codigo de la transacción </h3>
-              <input class="input-form"  id="codigoTransaccion" placeholder=" digita el codigo de la transaccion ">
+              <input class="input-form" name="codigoTransaccion"  id="codigoTransaccion" placeholder=" digita el codigo de la transaccion ">
             </div>
             
             <div class="cont-input">
               <h3>Nro. de formulario </h3>
-              <input class="input-form" id="nroFormulario" placeholder=" digita el codigo de la transaccion ">
+              <input class="input-form" name="nroFormulario" id="nroFormulario" placeholder=" digita el codigo de la transaccion ">
             </div>
             
             <div class="cont-input">
               <h3>Valor del producto </h3>
-              <input class="input-form" id="valorActivo" placeholder=" digita el codigo de la transaccion ">
+              <input class="input-form" name="valorActivo" id="valorActivo" placeholder=" digita el codigo de la transaccion ">
             </div>
 
             <div class="cont-input">
               <h3>Proveedor</h3>
-              <input class="input-form" id="proveedorActivo" placeholder=" digita el codigo de la transaccion ">
+              <input class="input-form" name="proveedorActivo" id="proveedorActivo" placeholder=" digita el codigo de la transaccion ">
             </div>
 
             <div class="cont-input">
               <h3>Nro serial </h3>
-              <input class="input-form" id="serialActivo" placeholder=" digita el codigo de la transaccion ">
+              <input class="input-form" name="serialActivo" id="serialActivo" placeholder=" digita el codigo de la transaccion ">
             </div> 
             <tables></tables> 
             <div class="cont-input">
               <h3>Empresa responsable </h3>
-              <input class="input-form" id="empresaResponsable" placeholder=" digita el codigo de la transaccion ">
+              <input class="input-form" name="empresaResponsable" id="empresaResponsable" placeholder=" digita el codigo de la transaccion ">
             </div>
 
             <div class="contenedor-inputs_seleccionar">
               <div class="cont-input_select">
                 <h3 class="titulo-select">Marca </h3>
-                <select class="input-seleccionar" id="marcaActivo">
+                <select class="input-seleccionar" name="marcaActivo" id="marcaActivo">
                 </select>
               </div>
               
               <div class="cont-input_select">
                 <h3 class="titulo-select">Categoria del activo </h3>
-                <select class="input-seleccionar" id="categoriaActivo">
+                <select class="input-seleccionar" name="categoriaActivo" id="categoriaActivo">
                 </select>
               </div>
               
               <div class="cont-input_select">
                 <h3 class="titulo-select">Tipo de activo </h3>
-                <select class="input-seleccionar" id="tipoActivo">
+                <select class="input-seleccionar" name="tipoActivo"  id="tipoActivo">
                 </select>
               </div>
 
               <div class="cont-input_select">
                 <h3 class="titulo-select">Estado </h3>
-                <select class="input-seleccionar" id="estadoActivo">
+                <select class="input-seleccionar" name="estadoActivo" id="estadoActivo">
                 </select>
               </div>  
             </div>
 
 
           </div>
-          <button id="BtnEnviarForm" class="input-anadir">ENVIAR</button>
+          <a href="#" id="BtnEnviarForm">Save</a>
+          <button  class="input-anadir">ENVIAR</button>
         </form>
       </section>
         `
     }
     
-    addActive= ()=> {
-        document.addEventListener('DOMContentLoaded', function(){
-            const URL_API = 'http://localhost:3000'
-            const endpoint = 'actives'
-            const activeForm = document.querySelector('#activesForm')
-            const BtnEnviar = document.querySelector('#BtnEnviarForm')
-
-            BtnEnviarForm.addEventListener('click', (e) => {
-                e.preventDefault();
-        
-                const codTransaccion = activeForm.querySelector('#codigoTransaccion').value;
-                const nroFormulario = activeForm.querySelector('#nroFormulario').value;
-                const marcaId = activeForm.querySelector('#marcaActivo').value;
-                const categoriaId = activeForm.querySelector('#categoriaActivo').value;
-                const tipoId = activeForm.querySelector('#tipoActivo').value;
-                const valorUnitario = activeForm.querySelector('#valorActivo').value;
-                const proveedorId = activeForm.querySelector('#proveedorActivo').value;
-                const nroSerial = activeForm.querySelector('#serialActivo').value;
-                const empresaResponsale = activeForm.querySelector('#empresaResponsable').value;
-                const estadoActivo = activeForm.querySelector('#estadoActivo').value;
-                let newId = 0
-
-                setId(URL_API, endpoint)
-
-                fetch(`${URL_API}`)
-                    .then(response => response.json())
-                    .then(activesData =>{
-                        newId = activesData.length + 1;
-
-
-                        const data = {
-                            "id": `A-${newId}`,
-                            "CodTransaccion": codTransaccion,
-                            "nroFormulario": nroFormulario,
-                            "marcaId": marcaId,
-                            "categoriaId": categoriaId,
-                            "tipoId": tipoId,
-                            "valorUnitario": valorUnitario,
-                            "proveedorId": proveedorId,
-                            "nroSerial": nroSerial,
-                            "empresaResponsableId": empresaResponsable,
-                            "estadoId": estadoActivo
-                        }  
-                        postData( data,URL_API )
-                    })
-                
+    saveData = () =>{
+      const frmRegistro = document.querySelector('#activesForm');
+      document.querySelector('#BtnEnviarForm').addEventListener("click",(e) =>{
+          const datos = Object.fromEntries(new FormData(frmRegistro).entries());
+          postDatas(datos)
+            .then(response => {
+                // Verificar si la solicitud fue exitosa (código de respuesta en el rango 200)
+                if (response.ok) {
+                    return response.json(); // Devolver la respuesta como JSON
+                } else {
+                    // Si la respuesta no fue exitosa, lanzar una excepción
+                    throw new Error(`Error en la solicitud POST: ${response.status} - ${response.statusText}`);
+                }
+            })
+            .then(responseData => {
+                // Hacer algo con la respuesta exitosa si es necesario
+                alert(responseData);
+            })
+            .catch(error => {
+                console.error('Error en la solicitud POST:', error.message);
+                // Puedes manejar el error de otra manera si es necesario
             });
-              
-            
-        })
-    }
+          e.stopImmediatePropagation();
+          e.preventDefault();
+/*           postContacts(datos)
+          .then(response => {
+              // Verificar si la solicitud fue exitosa (código de respuesta en el rango 200)
+              if (response.ok) {
+                  return response.json(); // Devolver la respuesta como JSON
+              } else {
+                  // Si la respuesta no fue exitosa, lanzar una excepción
+                  throw new Error(`Error en la solicitud POST: ${response.status} - ${response.statusText}`);
+              }
+          })
+          .then(responseData => {
+              // Hacer algo con la respuesta exitosa si es necesario
+              this.viewData(responseData.id);
+          })
+          .catch(error => {
+              console.error('Error en la solicitud POST:', error.message);
+              // Puedes manejar el error de otra manera si es necesario
+          });
+          this.ctrlBtn(e.target.dataset.ed);
+ */
+      })
+}
 }
 customElements.define("add-actives",addActives)
 

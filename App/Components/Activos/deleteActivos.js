@@ -1,69 +1,38 @@
-import { deleteData  } from '/../../../APIs/actives.js';
+import { deleteData, showData } from '/../../APIs/actives.js';
 
-export class addActives extends HTMLElement {
+export class deleteActives extends HTMLElement {
     constructor() {
         super();
         this.render();
         this.addActive();
     }
+
     render() {
         this.innerHTML = /* html */ `
-        <div id="javierchupapene"></div>
-        `
+        <input class="input-form" id="activoBuscado" placeholder="Digita el nombre del producto">
+        <button id="buscarActivo">Eliminar</button>
+        <div id="activeFound"></div>
+        `;
     }
     
-    addActive= ()=> {
-        document.addEventListener('DOMContentLoaded', function(){
-            const URL_API = 'http://localhost:3000/actives'
-            const activeForm = document.querySelector('#activesForm')
-
-            activeForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-        
-                const codTransaccion = activeForm.querySelector('#codigoTransaccion').value;
-                const nroFormulario = activeForm.querySelector('#nroFormulario').value;
-                const marcaId = activeForm.querySelector('#marcaActivo').value;
-                const categoriaId = activeForm.querySelector('#categoriaActivo').value;
-                const tipoId = activeForm.querySelector('#tipoActivo').value;
-                const valorUnitario = activeForm.querySelector('#valorActivo').value;
-                const proveedorId = activeForm.querySelector('#proveedorActivo').value;
-                const nroSerial = activeForm.querySelector('#serialActivo').value;
-                const empresaResponsable = activeForm.querySelector('#empresaResponsable').value;
-                const estadoActivo = activeForm.querySelector('#estadoActivo').value;
-                let newId = 0
-
-                fetch(`${URL_API}`)
-                    .then(response => response.json())
-                    .then(activesData =>{
-                        newId = activesData.length + 1;
-                        let aux = "0" 
-
-                        if (newId < 10) {
-                            let newIds = `0${newId}`
-                        } else {
-                            let newIds = `${newId}`
-                        }
-
-                        const data = {
-                            "id": `A-${newIds}`,
-                            "CodTransaccion": codTransaccion,
-                            "nroFormulario": nroFormulario,
-                            "marcaId": marcaId,
-                            "categoriaId": categoriaId,
-                            "tipoId": tipoId,
-                            "valorUnitario": valorUnitario,
-                            "proveedorId": proveedorId,
-                            "nroSerial": nroSerial,
-                            "empresaResponsableId": empresaResponsable,
-                            "estadoId": estadoActivo
-                        }  
-                        postData( data,URL_API )
-                    })
-                
-            });
-              
-            
-        })
+    addActive() {
+        const URL_API = 'http://localhost:3000/actives';
+        const buscarActivo = this.querySelector('#buscarActivo');
+        buscarActivo.addEventListener('click', async (e) => {
+            e.preventDefault();
+            const activoBuscado = this.querySelector('#activoBuscado').value;
+            try {
+                const activoEncontrado = await showData(URL_API, activoBuscado);
+                if (activoEncontrado !== undefined && activoEncontrado !== null) {
+                    await deleteData(URL_API, activoBuscado);
+                    console.log("Activo eliminado correctamente");
+                } else {
+                    console.log("Activo no encontrado");
+                }
+            } catch (error) {
+                console.error('Error:', error.message);
+            }
+        }); 
     }
 }
-customElements.define("add-actives",addActives)
+customElements.define("delete-actives", deleteActives);
