@@ -5,18 +5,18 @@ const myHeaders = new Headers({
 });
 
 
-const getData = async() => {
+const getData = async(endpoint) => {
     try {
-        return await fetch(`${URL_API}/actives`);
+        return await fetch(`${URL_API}/${endpoint}`);
 		// Si la respuesta es correcta
 	} catch(error){
         console.log(error);
 	}
     
 }
-const updateData = async (newData, URL_API, id) => {
+const updateData = async (newData, URL_API, endpoint) => {
     try {
-        const response = await fetch(`${URL_API}/${id}`, {
+        const response = await fetch(`${URL_API}/${endpoint}`, {
             method: "PATCH",
             headers: myHeaders,
             body: JSON.stringify(newData)
@@ -33,9 +33,9 @@ const updateData = async (newData, URL_API, id) => {
         throw error;
     }
 }
-const postData = async (datos) => {
+const postData = async (datos, id) => {
     try {
-        return await fetch(`${URL_API}/actives`, {
+        return await fetch(`${URL_API}/${id}`, {
             method: "POST",
             headers: myHeaders,
             body: JSON.stringify(datos)
@@ -55,8 +55,5 @@ const deleteData = async (URL_API, id) => {
     }
 }
 export {
-    getData as getData,
-    updateData as updateData,
-    postData as postDatas,
-    deleteData as deleteData
+    deleteData as deleteData, getData as getData, postData as postDatas, updateData as updateData
 };

@@ -1,4 +1,4 @@
-import { postDatas, getData} from '/../../../APIs/actives.js';
+import { getData, postDatas } from '/../../../APIs/actives.js';
 
 export class addActives extends HTMLElement {
     constructor() {
@@ -7,11 +7,14 @@ export class addActives extends HTMLElement {
         this.saveData();
     }
     render() {
+      const endpoint = 'actives'
         this.innerHTML = /* html */ `
         <section id="AddActiveForm" class="contenedor-formulario">
         
-        <form id="activesForm" class="cont-form"> 
-          <div class="cont-form_inputs">
+        <form id="activesForm" class="cont-form">
+        
+        <div class="cont-form_inputs">
+          
             <div  class="cont-input">
               <h3>Codigo de la transacción </h3>
               <input class="input-form" name="codigoTransaccion"  id="codigoTransaccion" placeholder=" digita el codigo de la transaccion ">
@@ -70,18 +73,58 @@ export class addActives extends HTMLElement {
 
 
           </div>
-          <a href="#" id="BtnEnviarForm">Save</a>
-          <button  class="input-anadir">ENVIAR</button>
+          <a href="#" class="input-anadir" id="BtnEnviarForm">Save</a>
         </form>
       </section>
         `
+
     }
-    
+
+    showData = () => {
+      const endpoint = 'actives'
+
+      document.querySelector('#BtnEnviarForm').addEventListener("click", () => {
+        getData(endpoint)
+        .then(response => {
+          if (response.ok) {
+            return response.json(); // Devolver la respuesta como JSON
+        } else {
+            // Si la respuesta no fue exitosa, lanzar una excepción
+            throw new Error(`Error en la solicitud POST: ${response.status} - ${response.statusText}`);
+        }
+        })
+        .then(responseData => {
+          return responseData
+        })
+      })
+    } 
+
     saveData = () =>{
+      
       const frmRegistro = document.querySelector('#activesForm');
+      const endpoint = 'actives'
+      
+
       document.querySelector('#BtnEnviarForm').addEventListener("click",(e) =>{
-          const datos = Object.fromEntries(new FormData(frmRegistro).entries());
-          postDatas(datos)
+        const datos = Object.fromEntries(new FormData(frmRegistro).entries());
+
+        getData(endpoint)
+        .then(response => {
+          if (response.ok) {
+            return response.json(); // Devolver la respuesta como JSON
+        } else {
+            // Si la respuesta no fue exitosa, lanzar una excepción
+            throw new Error(`Error en la solicitud POST: ${response.status} - ${response.statusText}`);
+        }
+        })
+        .then(responseData => {
+          return responseData
+
+        })
+
+
+
+          postDatas(datos, endpoint)
             .then(response => {
                 // Verificar si la solicitud fue exitosa (código de respuesta en el rango 200)
                 if (response.ok) {
@@ -93,7 +136,7 @@ export class addActives extends HTMLElement {
             })
             .then(responseData => {
                 // Hacer algo con la respuesta exitosa si es necesario
-                alert(responseData);
+                console(responseData)
             })
             .catch(error => {
                 console.error('Error en la solicitud POST:', error.message);
@@ -101,28 +144,12 @@ export class addActives extends HTMLElement {
             });
           e.stopImmediatePropagation();
           e.preventDefault();
-/*           postContacts(datos)
-          .then(response => {
-              // Verificar si la solicitud fue exitosa (código de respuesta en el rango 200)
-              if (response.ok) {
-                  return response.json(); // Devolver la respuesta como JSON
-              } else {
-                  // Si la respuesta no fue exitosa, lanzar una excepción
-                  throw new Error(`Error en la solicitud POST: ${response.status} - ${response.statusText}`);
-              }
-          })
-          .then(responseData => {
-              // Hacer algo con la respuesta exitosa si es necesario
-              this.viewData(responseData.id);
-          })
-          .catch(error => {
-              console.error('Error en la solicitud POST:', error.message);
-              // Puedes manejar el error de otra manera si es necesario
-          });
-          this.ctrlBtn(e.target.dataset.ed);
- */
       })
 }
+
+
+
+
 }
 customElements.define("add-actives",addActives)
 
