@@ -9,7 +9,7 @@ export class addActives extends HTMLElement {
     render() {
       const endpoint = 'actives'
         this.innerHTML = /* html */ `
-        <section id="AddActiveForm" class="contenedor-formulario">
+        <section id="AddCategorieForm" class="contenedor-formulario">
 
         <div class="contenedor-titulo_principal">
           <h1 id="TituloFormulario" class="titulo-formulario">Añadir Activo</h1>
@@ -25,76 +25,14 @@ export class addActives extends HTMLElement {
 
           <div  class="cont-input">
             <h3>Nombre Del Activo</h3>
-            <input type="text" class="input-form" name="nombreActivo"  id="nombreActivo" placeholder=" digita el codigo de la transaccion "required>
+            <input class="input-form" name="nombreActivo"  id="nombreActivo" placeholder=" digita el codigo de la transaccion ">
           </div>
-        
-            <div  class="cont-input">
-              <h3>Codigo De La Transacción </h3>
-              <input class="input-form" name="codigoTransaccion"  id="codigoTransaccion" placeholder=" digita el codigo de la transaccion " required> 
-            </div>
-            
-            <div class="cont-input">
-              <h3>Nro. De Formulario </h3>
-              <input class="input-form" name="nroFormulario" id="nroFormulario" placeholder=" digita el codigo de la transaccion " required>
-            </div>
-            
-            <div class="cont-input">
-              <h3>Valor Del Producto </h3>
-              <input class="input-form" name="valorActivo" id="valorActivo" placeholder=" digita el codigo de la transaccion " required>
-            </div>
-
-            <div class="cont-input">
-              <h3>Proveedor</h3>
-              <input class="input-form" name="proveedorActivo" id="proveedorActivo" placeholder=" digita el codigo de la transaccion " required>
-            </div>
-
-            <div class="cont-input">
-              <h3>Nro Serial </h3>
-              <input class="input-form" name="serialActivo" id="serialActivo" placeholder=" digita el codigo de la transaccion " required>
-            </div> 
-            <tables></tables> 
-            <div class="cont-input">
-              <h3>Empresa Responsable </h3>
-              <input type="text" class="input-form" name="empresaResponsable" id="empresaResponsable" placeholder=" digita el codigo de la transaccion " required>
-            </div>
-
-            <div class="contenedor-inputs_seleccionar">
-              <div class="cont-input_select">
-                <h3 class="titulo-select">Marca </h3>
-                <select class="input-seleccionar" name="marcaActivo" id="marcaActivo">
-                </select>
-              </div>
-              
-              <div class="cont-input_select">
-                <h3 class="titulo-select">Categoria Del Activo </h3>
-                <select class="input-seleccionar" name="categoriaActivo" id="categoriaActivo">
-                </select>
-              </div>
-              
-              <div class="cont-input_select">
-                <h3 class="titulo-select">Tipo De Activo </h3>
-                <select class="input-seleccionar" name="tipoActivo"  id="tipoActivo">
-                </select>
-              </div>
-
-              <div class="cont-input_select">
-                <h3 class="titulo-select">Estado </h3>
-                <select class="input-seleccionar" name="estado" id="estadoActivo">
-                  <option value="0"> No Asignado</option> 
-                  <option value="1"> Aignado</option> 
-                  <option value="2"> Dado De Baja Por Daño</option> 
-                  <option value="3"> En Reparacion y/o Garantia</option> 
-                </select>
-              </div>  
-            </div>
-
-
           </div>
           <a href="#" class="input-anadir" id="BtnEnviarForm">Save</a>
         </form>
 
         <dialog id="VentanaConfirmar" class="cont-dialog" closed>
-        <h1 class="titulo-dialog">Estas seguro que deseas añadir el activo?</h1>
+        <h1 class="titulo-dialog">Estas seguro que deseas eliminar el activo?</h1>
   
         <a href="#" id="BtnCancelar" class="btn-cancelar">Cancelar</a>
         <a href="#" id="BtnEnviar" class="btn-aceptar">Aceptar</a>
@@ -120,7 +58,7 @@ export class addActives extends HTMLElement {
         }
         })
         .then(responseData => {
-          showID.innerHTML = `A-${responseData.length + 1}`
+          showID.innerHTML = `C-${responseData.length + 1}`
         })
       })
     }
@@ -170,7 +108,7 @@ export class addActives extends HTMLElement {
                     }
                   })
                   .then(responseData => {
-                    showID.innerHTML = `A-${responseData.length}`
+                    showID.innerHTML = `C-${responseData.length}`
                     inputs.forEach(element => {
                       element.value = ""
                       modal.style.display = "none"

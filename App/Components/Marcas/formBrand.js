@@ -25,37 +25,37 @@ export class addActives extends HTMLElement {
 
           <div  class="cont-input">
             <h3>Nombre Del Activo</h3>
-            <input type="text" class="input-form" name="nombreActivo"  id="nombreActivo" placeholder=" digita el codigo de la transaccion "required>
+            <input class="input-form" name="nombreActivo"  id="nombreActivo" placeholder=" digita el codigo de la transaccion ">
           </div>
         
             <div  class="cont-input">
               <h3>Codigo De La Transacción </h3>
-              <input class="input-form" name="codigoTransaccion"  id="codigoTransaccion" placeholder=" digita el codigo de la transaccion " required> 
+              <input class="input-form" name="codigoTransaccion"  id="codigoTransaccion" placeholder=" digita el codigo de la transaccion ">
             </div>
             
             <div class="cont-input">
               <h3>Nro. De Formulario </h3>
-              <input class="input-form" name="nroFormulario" id="nroFormulario" placeholder=" digita el codigo de la transaccion " required>
+              <input class="input-form" name="nroFormulario" id="nroFormulario" placeholder=" digita el codigo de la transaccion ">
             </div>
             
             <div class="cont-input">
               <h3>Valor Del Producto </h3>
-              <input class="input-form" name="valorActivo" id="valorActivo" placeholder=" digita el codigo de la transaccion " required>
+              <input class="input-form" name="valorActivo" id="valorActivo" placeholder=" digita el codigo de la transaccion ">
             </div>
 
             <div class="cont-input">
               <h3>Proveedor</h3>
-              <input class="input-form" name="proveedorActivo" id="proveedorActivo" placeholder=" digita el codigo de la transaccion " required>
+              <input class="input-form" name="proveedorActivo" id="proveedorActivo" placeholder=" digita el codigo de la transaccion ">
             </div>
 
             <div class="cont-input">
               <h3>Nro Serial </h3>
-              <input class="input-form" name="serialActivo" id="serialActivo" placeholder=" digita el codigo de la transaccion " required>
+              <input class="input-form" name="serialActivo" id="serialActivo" placeholder=" digita el codigo de la transaccion ">
             </div> 
             <tables></tables> 
             <div class="cont-input">
               <h3>Empresa Responsable </h3>
-              <input type="text" class="input-form" name="empresaResponsable" id="empresaResponsable" placeholder=" digita el codigo de la transaccion " required>
+              <input class="input-form" name="empresaResponsable" id="empresaResponsable" placeholder=" digita el codigo de la transaccion ">
             </div>
 
             <div class="contenedor-inputs_seleccionar">
@@ -94,7 +94,7 @@ export class addActives extends HTMLElement {
         </form>
 
         <dialog id="VentanaConfirmar" class="cont-dialog" closed>
-        <h1 class="titulo-dialog">Estas seguro que deseas añadir el activo?</h1>
+        <h1 class="titulo-dialog">Estas seguro que deseas eliminar el activo?</h1>
   
         <a href="#" id="BtnCancelar" class="btn-cancelar">Cancelar</a>
         <a href="#" id="BtnEnviar" class="btn-aceptar">Aceptar</a>

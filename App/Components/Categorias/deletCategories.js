@@ -1,6 +1,6 @@
 import { deleteData, getElementData } from '/../../APIs/actives.js';
 
-export class deleteActives extends HTMLElement {
+export class deleteCategories extends HTMLElement {
     constructor() {
         super();
         this.render();
@@ -13,15 +13,15 @@ export class deleteActives extends HTMLElement {
         <h1 id="TituloFormulario" class="titulo-formulario"> Eliminar Activo</h1>
       </div>
         <div class="cont-form_inputs">
-            <input class="input-form" id="activoBuscado" placeholder="Digita el nombre del producto">
-            <a href="#" class="button-delete" id="eliminarActivo">Eliminar</a>
+            <input class="input-form" id="categoriaBuscado" placeholder="Digita el nombre del producto">
+            <a href="#" class="button-delete" id="buscarCategoria">Eliminar</a>
         </div>
 
-        <dialog id="VentanaConfirmarEliminar" class="cont-dialog" closed>
+        <dialog id="VentanaConfirmar" class="cont-dialog" closed>
             <h1 class="titulo-dialog">Estas seguro que deseas eliminar el activo?</h1>
 
-            <a href="#" id="BtnCancelarEliminar" class="btn-cancelar">Cancelar</a>
-            <a href="#" id="BtnEnviarEliminar" class="btn-aceptar">Aceptar</a>
+            <a href="#" id="BtnCancelar" class="btn-cancelar">Cancelar</a>
+            <a href="#" id="BtnEnviar" class="btn-aceptar">Aceptar</a>
         </dialog>
     </section>
         `;
@@ -29,21 +29,10 @@ export class deleteActives extends HTMLElement {
     
     deleteActive() {
         const endpoint = 'actives'
-        const buscarActivo = document.querySelector('#eliminarActivo');
-        const btnCancelar = document.querySelector("#BtnCancelarEliminar")
-        const BtnConfirmar = document.querySelector("#BtnEnviarEliminar")
-        const modal = document.getElementById("VentanaConfirmarEliminar")
-
-        buscarActivo.addEventListener('click', () => {
-            modal.style.display = "flex"
-        })
-        btnCancelar.addEventListener('click', () => {
-            modal.style.display = "none"
-        })
-
-        BtnConfirmar.addEventListener('click', async (e) => {
+        const buscarActivo = this.querySelector('#buscarCategoria');
+        buscarActivo.addEventListener('click', async (e) => {
             e.preventDefault();
-            const activoBuscado = this.querySelector('#activoBuscado').value;
+            const activoBuscado = this.querySelector('#categoriaBuscado').value;
             getElementData(endpoint,activoBuscado)
             .then(response => {
                 if (response.ok) {
@@ -67,4 +56,4 @@ export class deleteActives extends HTMLElement {
     }); 
     }
 }
-customElements.define("delete-actives", deleteActives);
+customElements.define("delete-categories", deleteCategories);

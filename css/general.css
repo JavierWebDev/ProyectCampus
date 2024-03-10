@@ -15,28 +15,6 @@
 
     --header-height: 3.5rem;
     --nav-width: 219px;
-  
-    /*========== Colors ==========*/
-    --first-color: #6923D0;
-    --primary-font: #4f4f4f;
-    --border-color: #19181B;
-    --text-color: #58555E;
-    --text-color-light: #A5A1AA;
-    --border-text: #Ffff;
-    --container-color: #FFFFFF;
-  
-    /*========== Font and typography ==========*/
-    --body-font: 'Poppins', sans-serif;
-    --normal-font-size: .938rem;
-    --small-font-size: .75rem;
-    --smaller-font-size: .75rem;
-  
-    /*========== Font weight ==========*/
-    --font-medium: 500;
-    --font-semi-bold: 600;
-  
-    /*========== z index ==========*/
-    --z-fixed: 100;
 }
 
 @media screen and (min-width: 1024px) {
@@ -69,6 +47,22 @@ a {
     display: flex;
     gap: 20px;
 }
+
+/* WEB COMPONENTS */
+
+add-actives {
+    display: none;
+}
+delete-actives {
+    display: none;
+}
+show-actives {
+    display: none;
+}
+update-actives {
+    display: none;
+}
+
 
 /* NAVEGACION */
 
@@ -269,6 +263,46 @@ header {
         width: 20%;
     }
 }
+/* VENTANAS MODALES */ 
+
+.cont-dialog {
+    position: fixed;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, 0);
+    padding: 20px;
+    width: 30%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 1px 51px 100% rgba(0,0,0,0.34);
+    -moz-box-shadow: 0px 1px 51px 200px rgba(0,0,0,0.34);
+    box-shadow: 0px 1px 51px 800px rgba(0,0,0,0.34);
+}
+
+.btn-cancelar {
+    background-color: red;
+    margin: 10px;
+    color: white;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+}
+.btn-cancelar:hover {
+    background-color: #a90720;
+}
+.btn-aceptar {
+    background-color: #63d46e;
+    margin: 10px;
+    color: white;
+    font-weight: 600;
+    padding: 10px;
+    border-radius: 10px;
+}
+.btn-aceptar:hover {
+    background-color: green;
+}
 
 /* FORMULARIOS */
 
@@ -277,7 +311,20 @@ header {
     margin-bottom: 50px;
     width: 100%;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.contenedor-titulo_principal {
+    margin-bottom: 20px;
+    width: 100%;
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+}
+
+.titulo-formulario {
+    font-size: 2rem;
+    color: var(--colorPrimario);
 }
 
 .cont-form {
@@ -299,6 +346,12 @@ header {
     padding: 20px;
     background-color: var(--colorQuinto);
     border-radius: 10px;
+}
+
+.text-id {
+    font-size: 1.8rem;
+    color: white;
+    text-align: center;
 }
 
 .cont-input {
@@ -367,3 +420,62 @@ header {
     background-color: var(--colorQuinto);
     border: 2px solid var(--colorTerciario);
 }
+
+/* MEDIA QUERYS */
+
+@media screen and (max-width: 600px) {
+    .cont-form {
+        width: 100%;
+        border-radius: 0;
+    }
+
+    .cont-dialog {
+        width: 80%;
+    }
+}
+
+/* ELIMINAR */
+
+.button-delete {
+    background-color: var(--colorSecundario);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+
+    transition: background-color 0.3s ease;
+}
+
+.button-delete:hover {
+    background-color: red;
+}
+
+/* EDITAR */
+
+update-actives {
+    width: 100%;
+}
+
+#activeFoundActualize {
+    width: 100%;
+}
+
+
+#EditActiveForm {
+    width: 100%;
+}
+
+.button-editar {
+    background-color: var(--colorSecundario);
+    color: white;
+    padding: 20px;
+    border-radius: 10px;
+
+    transition: background-color 0.3s ease;
+}
+
+.button-editar:hover {
+    background-color: rgba(37, 138, 233, 0.726);
+}
+
+/* LISTAR ACTIVOS */
+

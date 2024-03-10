@@ -14,14 +14,14 @@ export class deleteActives extends HTMLElement {
       </div>
         <div class="cont-form_inputs">
             <input class="input-form" id="activoBuscado" placeholder="Digita el nombre del producto">
-            <a href="#" class="button-delete" id="eliminarActivo">Eliminar</a>
+            <a href="#" class="button-delete" id="buscarActivo">Eliminar</a>
         </div>
 
-        <dialog id="VentanaConfirmarEliminar" class="cont-dialog" closed>
+        <dialog id="VentanaConfirmar" class="cont-dialog" closed>
             <h1 class="titulo-dialog">Estas seguro que deseas eliminar el activo?</h1>
 
-            <a href="#" id="BtnCancelarEliminar" class="btn-cancelar">Cancelar</a>
-            <a href="#" id="BtnEnviarEliminar" class="btn-aceptar">Aceptar</a>
+            <a href="#" id="BtnCancelar" class="btn-cancelar">Cancelar</a>
+            <a href="#" id="BtnEnviar" class="btn-aceptar">Aceptar</a>
         </dialog>
     </section>
         `;
@@ -29,19 +29,8 @@ export class deleteActives extends HTMLElement {
     
     deleteActive() {
         const endpoint = 'actives'
-        const buscarActivo = document.querySelector('#eliminarActivo');
-        const btnCancelar = document.querySelector("#BtnCancelarEliminar")
-        const BtnConfirmar = document.querySelector("#BtnEnviarEliminar")
-        const modal = document.getElementById("VentanaConfirmarEliminar")
-
-        buscarActivo.addEventListener('click', () => {
-            modal.style.display = "flex"
-        })
-        btnCancelar.addEventListener('click', () => {
-            modal.style.display = "none"
-        })
-
-        BtnConfirmar.addEventListener('click', async (e) => {
+        const buscarActivo = this.querySelector('#buscarActivo');
+        buscarActivo.addEventListener('click', async (e) => {
             e.preventDefault();
             const activoBuscado = this.querySelector('#activoBuscado').value;
             getElementData(endpoint,activoBuscado)
