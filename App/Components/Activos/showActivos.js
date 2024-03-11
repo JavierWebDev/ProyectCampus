@@ -8,15 +8,11 @@ export class showActive extends HTMLElement {
   }
   render() {
     this.innerHTML = /* html */ `
-        <section id="ShowActiveForm">
+        <section id="ShowActive">
             <div class="contenedor-inputs_buscar">
                 <input class="input-form" id="activoBuscado" placeholder=" digita el nombre del producto">
                 <button id="buscarActivo" class="button-filtrar"><box-icon name='search-alt-2' color='#ffffff' ></box-icon></button>
             </div>
-
-            <dialog id="VentanaDetalles" class="cont-dialog" open>
-
-            </dialog>
 
             <div id="activesFoundShow" class="contenedor-mostrar"></div>
         </section>
@@ -25,11 +21,12 @@ export class showActive extends HTMLElement {
 
   showActive() {
     const endpoint = "actives";
-    const buscarActivo = this.querySelector("#buscarActivo");
+    const buscarActivo = document.querySelector("#buscarActivo");
   
-    addEventListener("DOMContentLoaded", async () => {
+    addEventListener("DOMContentLoaded", () => {
       const activoBuscado = document.querySelector("#activoBuscado").value;
-  
+      const SeccionMostrar = document.querySelector("#ShowActive");
+      
       getData(endpoint)
         .then((response) => {
           if (response.ok) {
@@ -52,32 +49,46 @@ export class showActive extends HTMLElement {
                 <p class="tarjeta-listar_estado">${activo.estado}</p>
                 <a href="#" class="button-listar"><box-icon name='info-circle' color='#ffffff' ></box-icon></a>
               `;
+
+              const idenEstado = (codEstado) => {
+                if (codEstado === "0") {
+                  return "No Asignado"
+                } else if (codEstado === "1") {
+                  return "Asignado" 
+                } else if (codEstado === "2"){
+                  return "Dado De Baja"
+                } else if (codEstado === "3"){
+                  return "En Reparacion"
+                }
+              }
   
-              document.querySelector("#activesFoundShow").append(clon);
-            });
-            
-            const btnDetallesLista = document.querySelectorAll(".button-delete_listar");
+              document.querySelector("#activesFoundShow").appendChild(clon);
   
-            btnDetallesLista.forEach(boton => {
-              const modalInformacion = document.querySelector("#VentanaDetalles");
+              const btnDetallesLista = clon.querySelector(".button-listar");
+              
+              btnDetallesLista.addEventListener("click", (e) => {
+                let modal = document.createElement("dialog");
+                modal.innerHTML = `
+                  <h1>${activo.id}</h1>
+                  <h1>${activo.nombreActivo}</h1>
+                  <p>${idenEstado(activo.estado)}</p>
+                  <a id="BtnCerrarModalListar" class="btn-cancelar_listar">X</a>
+                `;
+                modal.classList.add("cont-dialog");
+                modal.style.display = "flex";
   
-              boton.addEventListener("click", (e) => {
-                modalInformacion.style.display = "flex"
-                modalInformacion.innerHTML = `
-                <h1>${activo.nombreActivo}</h1>
-                `
+                SeccionMostrar.appendChild(modal);
+  
+                const BtnCerrarDetalles = modal.querySelector("#BtnCerrarModalListar");
+  
+                BtnCerrarDetalles.addEventListener("click", () => {
+                  modal.style.display = "none";
+                });
   
                 e.preventDefault();
                 e.stopImmediatePropagation();
               });
             });
-  
-            // Manejador de evento para el botón cancelar
-            document.querySelector("#BtnCancelarListar").addEventListener("click", (e) => {
-              const modalDenegar = document.querySelector("#VentanaDenegarListarActivos");
-              modalDenegar.style.display = "none";
-            });
-  
           } else {
             console.log("Activo no encontrado");
           }

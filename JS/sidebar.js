@@ -90,10 +90,9 @@ BtnListarActivo.addEventListener("click", (e) => {
 
     EditarActivo.style.display = "none"
     AnadirActivo.style.display = "none"
-    EditarActivo.style.display = "none"
+    EliminarActivo.style.display = "none"
 
     e.preventDefault()
-    e.stopImmediatePropagation()
 })
 
 // CATEGORIAS
@@ -129,7 +128,6 @@ BtnEliminarCategorias.addEventListener("click", (e) => {
     ListarCategorias.style.display = "none"
 
     e.preventDefault()
-    e.stopImmediatePropagation()
 })
 BtnEditarCategorias.addEventListener("click", (e) => {
     EditarCategorias.style.display = "block"
@@ -149,5 +147,4 @@ BtnListarCategorias.addEventListener("click", (e) => {
     EditarCategorias.style.display = "none"
 
     e.preventDefault()
-    e.stopImmediatePropagation()
 })

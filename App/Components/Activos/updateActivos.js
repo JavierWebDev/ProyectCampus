@@ -9,15 +9,16 @@ export class updateActive extends HTMLElement {
     render() {
         this.innerHTML = /* html */ `
         <section id="EditActiveForm" class="contenedor-formulario">
-        <div class="contenedor-titulo_principal">
-          <h1 id="TituloFormulario" class="titulo-formulario"> Editar Activo</h1>
-        </div>
-          <div class="cont-form_inputs">
-              <input class="input-form" id="activoBuscado" placeholder="Digita el nombre del producto">
-              <a href="#" class="button-editar" id="buscarActivo">Editar</a>
-          </div>
+            <div class="contenedor-titulo_principal">
+                <h1 id="TituloFormulario" class="titulo-formulario"> Editar Activo</h1>
+            </div>
+            <div class="cont-form_inputs">
+                <input class="input-form" id="activoBuscado" placeholder="Digita el nombre del producto">
+                <a href="#" class="button-editar" id="buscarActivo">Editar</a>
+            </div>
 
-          <div id="activeFoundActualize"></div>
+            <div id="activeFoundActualize"></div>
+        </section>
         `
     }
     
