@@ -1,6 +1,6 @@
-import { getData, postDatas } from '/../../../APIs/actives.js';
+import { getData, postDatas } from '/../../../APIs/API.js';
 
-export class addActives extends HTMLElement {
+export class addMoves extends HTMLElement {
     constructor() {
         super();
         this.render();
@@ -9,7 +9,7 @@ export class addActives extends HTMLElement {
     render() {
       const endpoint = 'actives'
         this.innerHTML = /* html */ `
-        <section id="AddActiveForm" class="contenedor-formulario">
+        <section id="AddMovesForm" class="contenedor-formulario">
 
         <div class="contenedor-titulo_principal">
           <h1 id="TituloFormulario" class="titulo-formulario">Añadir Activo</h1>
@@ -18,14 +18,14 @@ export class addActives extends HTMLElement {
         <dialog id="Ventana">
           <h1>aaa</h1>
         </dialog>
-        <form id="activesForm" class="cont-form">
+        <form id="MovesForm" class="cont-form">
         
         <div class="cont-form_inputs">
-          <h1 class="text-id" id="ShowID"></h1>    
+          <h1 class="text-id" id="ShowIDmoves"></h1>    
 
           <div  class="cont-input">
             <h3>Nombre Del Activo</h3>
-            <input class="input-form" name="nombreActivo"  id="nombreActivo" placeholder=" digita el codigo de la transaccion ">
+            <input class="input-form" name="nombreActivo"  id="fecha" type="date">
           </div>
         
             <div  class="cont-input">

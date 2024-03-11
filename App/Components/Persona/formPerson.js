@@ -1,4 +1,4 @@
-import { getData, postDatas } from '/../../../APIs/actives.js';
+import { getData, postDatas } from '/../../../APIs/API.js';
 
 export class addActives extends HTMLElement {
     constructor() {

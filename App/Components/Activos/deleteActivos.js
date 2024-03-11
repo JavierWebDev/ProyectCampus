@@ -1,4 +1,4 @@
-import { deleteData, getElementData } from '/../../APIs/actives.js';
+import { deleteData, getElementData } from '/../../APIs/API.js';
 
 export class deleteActives extends HTMLElement {
     constructor() {
@@ -56,6 +56,7 @@ export class deleteActives extends HTMLElement {
                     if (responseData !== undefined && responseData !== null) {
                         deleteData( endpoint, activoBuscado);
                         console.log("Activo eliminado correctamente");
+                        modal.style.display = "none"
                     } else {
                         console.log("Activo no encontrado");
                     }

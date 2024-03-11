@@ -1,26 +1,33 @@
-import {  getElementData, updateData  } from '/../../APIs/actives.js';
+import {  getElementData, updateData  } from '/../../APIs/API.js';
 
-export class updateActive extends HTMLElement {
+export class updateCategories extends HTMLElement {
     constructor() {
         super();
         this.render();
         this.updateActive();
-    }
+    }   
     render() {
         this.innerHTML = /* html */ `
-        <input class="input-form" id="activoBuscado" placeholder=" digita el nombre del producto">
-        <button id="buscarActivo">ingresar</button>
-        <div id="activeFoundActualize"></div>
+        <section id="EditCategorieForm" class="contenedor-formulario">
+        <div class="contenedor-titulo_principal">
+          <h1 id="TituloFormulario" class="titulo-formulario"> Editar Categoria</h1>
+        </div>
+          <div class="cont-form_inputs">
+              <input class="input-form" id="categoriaBuscado" placeholder="Digita el nombre de la categoria">
+              <a href="#" class="button-editar" id="buscarCategoria">Editar</a>
+          </div>
+
+          <div id="categorieFoundActualize"></div>
         `
     }
     
     updateActive() {
-        const endpoint = 'actives'
-        const buscarActivo = this.querySelector('#buscarActivo');
+        const endpoint = 'categories'
+        const buscarActivo = this.querySelector('#buscarCategoria');
         buscarActivo.addEventListener('click', async (e) => {
             e.preventDefault();
-            const activoBuscado = this.querySelector('#activoBuscado').value;
-            getElementData(endpoint, activoBuscado )
+            const activoBuscado = this.querySelector('#categoriaBuscado').value;
+            getElementData(endpoint, categoriaBuscado )
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -32,84 +39,45 @@ export class updateActive extends HTMLElement {
                 console.log(responseData)
                     if (responseData !== undefined && responseData !== null) {
                         
-                        const activeFound = document.getElementById("activeFoundActualize");
+                        const activeFound = document.getElementById("CategorieFoundActualize");
                         console.log(activeFound)
                         activeFound.innerHTML=`
-                            <section id="AddActiveForm" class="contenedor-formulario">
-                                <form id="activesFormActualize" class="cont-form"> 
+                            <section id="AddCategorieForm" class="contenedor-formulario">
 
+                            <div class="contenedor-titulo_principal">
+                                <h1 id="TituloFormulario" class="titulo-formulario">Editar Categoria</h1>
+                            </div>
+                    
+                            <dialog id="Ventana">
+                            <h1>aaa</h1>
+                            </dialog>
+                            <form id="categoriesFormActualize" class="cont-form">
+                            
+                            <div class="cont-form_inputs">
+                                <h1 class="text-id" id="ShowIDCategories"></h1>    
+                    
                                 <div  class="cont-input">
                                     <h3>Nombre Del Activo</h3>
-                                    <input class="input-form" name="nombreActivo"  id="nombreActivoActualize" placeholder=" digita el codigo de la transaccion ">
+                                    <input class="input-form" name="nombre"  id="nombreCategoriaActualize" placeholder=" digita el codigo de la transaccion ">
                                 </div>
-                                <div  class="cont-input">
-                                    <h3>Codigo de la transacción </h3>
-                                    <input class="input-form" name="codigoTransaccion"  id="codigoTransaccionActualize" placeholder=" digita el codigo de la transaccion ">
-                                </div>
-                                
-                                <div class="cont-input">
-                                    <h3>Nro. de formulario </h3>
-                                    <input class="input-form" name="nroFormulario" id="nroFormularioActualize" placeholder=" digita el codigo de la transaccion ">
-                                </div>
-                                
-                                <div class="cont-input">
-                                    <h3>Valor del producto </h3>
-                                    <input class="input-form" name="valorActivo" id="valorActivoActualize" placeholder=" digita el codigo de la transaccion ">
-                                </div>
-
-                                <div class="cont-input">
-                                    <h3>Proveedor</h3>
-                                    <input class="input-form" name="proveedorActivo" id="proveedorActivoActualize" placeholder=" digita el codigo de la transaccion ">
-                                </div>
-
-                                <div class="cont-input">
-                                    <h3>Nro serial </h3>
-                                    <input class="input-form" name="serialActivo" id="serialActivoActualize" placeholder=" digita el codigo de la transaccion ">
-                                </div> 
-                                <tables></tables> 
-                                <div class="cont-input">
-                                    <h3>Empresa responsable </h3>
-                                    <input class="input-form" name="empresaResponsable" id="empresaResponsableActualize" placeholder=" digita el codigo de la transaccion ">
-                                </div>
-
-                                <div class="contenedor-inputs_seleccionar">
-                                <div class="cont-input_select">
-                                    <h3 class="titulo-select">Marca </h3>
-                                    <select class="input-seleccionar" name="marcaActivo" id="marcaActivoActualize">
-                                    </select>
-                                </div>
-                                
-                                <div class="cont-input_select">
-                                    <h3 class="titulo-select">Categoria del activo </h3>
-                                    <select class="input-seleccionar" name="categoriaActivo" id="categoriaActivoActualize">
-                                    </select>
-                                </div>
-                                
-                                <div class="cont-input_select">
-                                    <h3 class="titulo-select">Tipo de activo </h3>
-                                    <select class="input-seleccionar" name="tipoActivo"  id="tipoActivoActualize">
-                                    </select>
-                                </div>
-
-                                <div class="cont-input_select">
-                                    <h3 class="titulo-select">Estado </h3>
-                                    <select class="input-seleccionar" name="estadoActivo" id="estadoActivoActualize">
-                                    </select>
-                                </div>  
-                                </div>
-
-
                             </div>
-                            <a href="#" class="input-anadir" id="BtnEnviarFormActualize">Save</a>
-                                </form>
-                            </section>`
+                            <a href="#" class="input-anadir" id="BtnEnviarFormCategoriesActualize">Save</a>
+                            </form>
+                    
+                            <dialog id="VentanaConfirmarCategories" class="cont-dialog" closed>
+                            <h1 class="titulo-dialog">Estas seguro que deseas eliminar el activo?</h1>
+                    
+                            <a href="#" id="BtnCancelarCategories" class="btn-cancelar">Cancelar</a>
+                            <a href="#" id="BtnEnviarCategories" class="btn-aceptar">Aceptar</a>
+                        </dialog>
+                        </section>`
                             
                             
 
-                            document.querySelector('#BtnEnviarFormActualize').addEventListener("click", async (e) => {
+                            document.querySelector('#BtnEnviarFormCategoriesActualize').addEventListener("click", async (e) => {
                                 e.preventDefault();
-                                const endpoint = 'actives'
-                                const frmRegistro = document.querySelector('#activesFormActualize');
+                                const endpoint = 'categories'
+                                const frmRegistro = document.querySelector('#categoriesFormActualize');
                                 try {
                                     let datos = Object.fromEntries(new FormData(frmRegistro).entries());
                                     const response = await updateData(datos, endpoint, activoBuscado);
@@ -131,4 +99,4 @@ export class updateActive extends HTMLElement {
     }); 
     }
 }
-customElements.define("update-actives",updateActive)
+customElements.define("update-categories",updateCategories)

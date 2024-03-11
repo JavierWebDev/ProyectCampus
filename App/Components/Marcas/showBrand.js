@@ -1,25 +1,25 @@
-import {  getElementData} from '/../../APIs/actives.js';
+import {  getElementData} from '/../../APIs/API.js';
 
-export class showActive extends HTMLElement {
+export class showBrand extends HTMLElement {
     constructor() {
         super();
         this.render();
-        this.showActive();
+        this.showBrand();
     }
     render() {
         this.innerHTML = /* html */ `
-        <input class="input-form" id="activoBuscado" placeholder=" digita el nombre del producto">
-        <button id="buscarActivo">ingresar</button>
-        <div id="activeFoundShow"></div>
+        <input class="input-form" id="marcaBuscado" placeholder=" digita el nombre de la marca">
+        <button id="buscarMarca">ingresar</button>
+        <div id="brandFoundShow"></div>
         `
     }
     
-    showActive() {
-        const endpoint = 'actives'
-        const buscarActivo = this.querySelector('#buscarActivo');
+    showBrand() {
+        const endpoint = 'brand'
+        const buscarActivo = this.querySelector('#buscarMarca');
         buscarActivo.addEventListener('click', async (e) => {
             e.preventDefault();
-            const activoBuscado = this.querySelector('#activoBuscado').value;
+            const activoBuscado = this.querySelector('#marcaBuscado').value;
             getElementData(endpoint, activoBuscado )
             .then(response => {
                 if (response.ok) {
@@ -31,16 +31,14 @@ export class showActive extends HTMLElement {
             .then(responseData => {
                 console.log(responseData)
                     if (responseData !== undefined && responseData !== null) {                     
-                        const activeFound = document.getElementById("activeFoundShow");
+                        const activeFound = document.getElementById("brandFoundShow");
                         let idShow = responseData.id
-                        let nameShow = responseData.nombreActivo
-                        let estadoShow = responseData.estado
+                        let nameShow = responseData.nombre
                         activeFound.innerHTML=`
-                            <section id="showActive" class="contenedor-formulario">
+                            <section id="showBrand" class="contenedor-formulario">
                                 <div>
-                                    <h1>id activo: ${idShow} </h1>
+                                    <h1>id marca: ${idShow} </h1>
                                     <h1>${nameShow}</h1>
-                                    <h1>${estadoShow}</h1>
                                 </div>
                             </section>`
                             
@@ -56,4 +54,4 @@ export class showActive extends HTMLElement {
     }); 
     }
 }
-customElements.define("show-actives",showActive)
+customElements.define("show-brand",showBrand)

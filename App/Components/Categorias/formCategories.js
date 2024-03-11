@@ -1,41 +1,41 @@
-import { getData, postDatas } from '/../../../APIs/actives.js';
+import { getData, postDatas } from '/../../../APIs/API.js';
 
-export class addActives extends HTMLElement {
+export class addCategories extends HTMLElement {
     constructor() {
         super();
         this.render();
         this.saveData();
     }
     render() {
-      const endpoint = 'actives'
+      const endpoint = 'categories'
         this.innerHTML = /* html */ `
         <section id="AddCategorieForm" class="contenedor-formulario">
 
         <div class="contenedor-titulo_principal">
-          <h1 id="TituloFormulario" class="titulo-formulario">Añadir Activo</h1>
+          <h1 id="TituloFormulario" class="titulo-formulario">Añadir Categoria</h1>
         </div>
 
         <dialog id="Ventana">
           <h1>aaa</h1>
         </dialog>
-        <form id="activesForm" class="cont-form">
+        <form id="categoriesForm" class="cont-form">
         
         <div class="cont-form_inputs">
-          <h1 class="text-id" id="ShowID"></h1>    
+          <h1 class="text-id" id="ShowIDCategories"></h1>    
 
           <div  class="cont-input">
             <h3>Nombre Del Activo</h3>
-            <input class="input-form" name="nombreActivo"  id="nombreActivo" placeholder=" digita el codigo de la transaccion ">
+            <input class="input-form" name="nombre"  id="nombreCategoria" placeholder=" digita el codigo de la transaccion ">
           </div>
           </div>
-          <a href="#" class="input-anadir" id="BtnEnviarForm">Save</a>
+          <a href="#" class="input-anadir" id="BtnEnviarFormCategories">Save</a>
         </form>
 
-        <dialog id="VentanaConfirmar" class="cont-dialog" closed>
+        <dialog id="VentanaConfirmarCategories" class="cont-dialog" closed>
         <h1 class="titulo-dialog">Estas seguro que deseas eliminar el activo?</h1>
   
-        <a href="#" id="BtnCancelar" class="btn-cancelar">Cancelar</a>
-        <a href="#" id="BtnEnviar" class="btn-aceptar">Aceptar</a>
+        <a href="#" id="BtnCancelarCategories" class="btn-cancelar">Cancelar</a>
+        <a href="#" id="BtnEnviarCategories" class="btn-aceptar">Aceptar</a>
       </dialog>
       </section>
         `
@@ -43,8 +43,8 @@ export class addActives extends HTMLElement {
     }
 
     showData = () => {
-      const endpoint = 'actives'
-      const showID = document.querySelector("#ShowID")
+      const endpoint = 'categories'
+      const showID = document.querySelector("#ShowIDCategories")
       
 
       addEventListener("DOMContentLoaded", () => {
@@ -64,12 +64,12 @@ export class addActives extends HTMLElement {
     }
 
     saveData = () =>{
-      const frmRegistro = document.querySelector('#activesForm');
-      const endpoint = 'actives'
-      const showID = document.querySelector("#ShowID")
-      const btnCancelar = document.querySelector("#BtnCancelar")
-      const BtnEnviarForm = document.querySelector("#BtnEnviarForm")
-      const modal = document.getElementById("VentanaConfirmar")
+      const frmRegistro = document.querySelector('#categoriesForm');
+      const endpoint = 'categories'
+      const showID = document.querySelector("#ShowIDCategories")
+      const btnCancelar = document.querySelector("#BtnCancelarCategories")
+      const BtnEnviarForm = document.querySelector("#BtnEnviarFormCategories")
+      const modal = document.getElementById("VentanaConfirmarCategories")
       const inputs = document.querySelectorAll(".input-form")
 
 
@@ -80,7 +80,7 @@ export class addActives extends HTMLElement {
         modal.style.display = "none"
       })
 
-      document.querySelector("#BtnEnviar").addEventListener("click",(e) =>{
+      document.querySelector("#BtnEnviarCategories").addEventListener("click",(e) =>{
         let datos = Object.fromEntries(new FormData(frmRegistro).entries());
          datos.id = showID.innerHTML
 
@@ -132,4 +132,4 @@ export class addActives extends HTMLElement {
    this.showData()  
 }
 }
-customElements.define("add-actives",addActives)
+customElements.define("add-categories",addCategories)

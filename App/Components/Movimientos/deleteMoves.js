@@ -1,4 +1,4 @@
-import { deleteData, getElementData } from '/../../APIs/actives.js';
+import { deleteData, getElementData } from '/../../APIs/API.js';
 
 export class deleteActives extends HTMLElement {
     constructor() {
@@ -57,3 +57,5 @@ export class deleteActives extends HTMLElement {
     }
 }
 customElements.define("delete-actives", deleteActives);
+
+/* id, fecha, activoId, comentario, asignacionId */

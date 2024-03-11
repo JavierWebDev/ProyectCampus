@@ -1,14 +1,14 @@
-import { getData, postDatas } from '/../../../APIs/actives.js';
+import { getData, postDatas } from "/../../../APIs/API.js";
 
 export class addActives extends HTMLElement {
-    constructor() {
-        super();
-        this.render();
-        this.saveData();
-    }
-    render() {
-      const endpoint = 'actives'
-        this.innerHTML = /* html */ `
+  constructor() {
+    super();
+    this.render();
+    this.saveData();
+  }
+  render() {
+    const endpoint = "actives";
+    this.innerHTML = /* html */ `
         <section id="AddActiveForm" class="contenedor-formulario">
 
         <div class="contenedor-titulo_principal">
@@ -100,98 +100,95 @@ export class addActives extends HTMLElement {
         <a href="#" id="BtnEnviar" class="btn-aceptar">Aceptar</a>
       </dialog>
       </section>
-        `
+        `;
+  }
 
-    }
+  showData = () => {
+    const endpoint = "actives";
+    const showID = document.querySelector("#ShowID");
 
-    showData = () => {
-      const endpoint = 'actives'
-      const showID = document.querySelector("#ShowID")
-      
-
-      addEventListener("DOMContentLoaded", () => {
-        getData(endpoint)
-        .then(response => {
+    addEventListener("DOMContentLoaded", () => {
+      getData(endpoint)
+        .then((response) => {
           if (response.ok) {
             return response.json(); // Devolver la respuesta como JSON
-        } else {
+          } else {
             // Si la respuesta no fue exitosa, lanzar una excepción
-            throw new Error(`Error en la solicitud POST: ${response.status} - ${response.statusText}`);
-        }
+            throw new Error(
+              `Error en la solicitud POST: ${response.status} - ${response.statusText}`
+            );
+          }
         })
-        .then(responseData => {
-          showID.innerHTML = `A-${responseData.length + 1}`
+        .then((responseData) => {
+          showID.innerHTML = `A-${responseData.length + 1}`;
+        });
+    });
+  };
+
+  saveData = () => {
+    const frmRegistro = document.querySelector("#activesForm");
+    const endpoint = "actives";
+    const showID = document.querySelector("#ShowID");
+    const btnCancelar = document.querySelector("#BtnCancelar");
+    const BtnEnviarForm = document.querySelector("#BtnEnviarForm");
+    const modal = document.getElementById("VentanaConfirmar");
+    const inputs = document.querySelectorAll(".input-form");
+
+    BtnEnviarForm.addEventListener("click", () => {
+      modal.style.display = "flex";
+    });
+    btnCancelar.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    document.querySelector("#BtnEnviar").addEventListener("click", (e) => {
+      let datos = Object.fromEntries(new FormData(frmRegistro).entries());
+      datos.id = showID.innerHTML;
+
+      postDatas(datos, endpoint)
+        .then((response) => {
+          // Verificar si la solicitud fue exitosa (código de respuesta en el rango 200)
+          if (response.ok) {
+            return response.json(); // Devolver la respuesta como JSON
+          } else {
+            // Si la respuesta no fue exitosa, lanzar una excepción
+            throw new Error(
+              `Error en la solicitud POST: ${response.status} - ${response.statusText}`
+            );
+          }
         })
-      })
-    }
-
-    saveData = () =>{
-      const frmRegistro = document.querySelector('#activesForm');
-      const endpoint = 'actives'
-      const showID = document.querySelector("#ShowID")
-      const btnCancelar = document.querySelector("#BtnCancelar")
-      const BtnEnviarForm = document.querySelector("#BtnEnviarForm")
-      const modal = document.getElementById("VentanaConfirmar")
-      const inputs = document.querySelectorAll(".input-form")
-
-
-      BtnEnviarForm.addEventListener("click", () => {
-        modal.style.display = "flex"
-      })
-      btnCancelar.addEventListener("click", () => {
-        modal.style.display = "none"
-      })
-
-      document.querySelector("#BtnEnviar").addEventListener("click",(e) =>{
-        let datos = Object.fromEntries(new FormData(frmRegistro).entries());
-         datos.id = showID.innerHTML
-
-
-          postDatas(datos, endpoint)
-            .then(response => {
+        .then((responseData) => {
+          if (responseData.id === showID.innerHTML) {
+            getData(endpoint)
+              .then((response) => {
                 // Verificar si la solicitud fue exitosa (código de respuesta en el rango 200)
                 if (response.ok) {
-                    return response.json(); // Devolver la respuesta como JSON
+                  return response.json(); // Devolver la respuesta como JSON
                 } else {
-                    // Si la respuesta no fue exitosa, lanzar una excepción
-                    throw new Error(`Error en la solicitud POST: ${response.status} - ${response.statusText}`);
+                  // Si la respuesta no fue exitosa, lanzar una excepción
+                  throw new Error(
+                    `Error en la solicitud POST: ${response.status} - ${response.statusText}`
+                  );
                 }
-            })
-             .then(responseData => {
-                 if (responseData.id === showID.innerHTML) {
-                  getData(endpoint)
-                  .then(response => {
-                    // Verificar si la solicitud fue exitosa (código de respuesta en el rango 200)
-                    if (response.ok) {
-                        return response.json(); // Devolver la respuesta como JSON
-                    } else {
-                        // Si la respuesta no fue exitosa, lanzar una excepción
-                        throw new Error(`Error en la solicitud POST: ${response.status} - ${response.statusText}`);
-                    }
-                  })
-                  .then(responseData => {
-                    showID.innerHTML = `A-${responseData.length}`
-                    inputs.forEach(element => {
-                      element.value = ""
-                      modal.style.display = "none"
-                    });
-                    
-                  })
-                 
-                 }
-
               })
-            .catch(error => {
-                console.error('Error en la solicitud POST:', error.message);
-                // Puedes manejar el error de otra manera si es necesario
-            });
+              .then((responseData) => {
+                showID.innerHTML = `A-${responseData.length}`;
+                inputs.forEach((element) => {
+                  element.value = "";
+                  modal.style.display = "none";
+                });
+              });
+          }
+        })
+        .catch((error) => {
+          console.error("Error en la solicitud POST:", error.message);
+          // Puedes manejar el error de otra manera si es necesario
+        });
 
-
-
-          e.stopImmediatePropagation();
-          e.preventDefault();
-      })
-   this.showData()  
+      e.stopImmediatePropagation();
+      e.preventDefault();
+    });
+    this.showData();
+  };
 }
-}
-customElements.define("add-actives",addActives)
+customElements.define("add-actives", addActives);

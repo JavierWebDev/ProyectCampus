@@ -50,6 +50,8 @@ a {
 
 /* WEB COMPONENTS */
 
+/* ACTIVOS */
+
 add-actives {
     display: none;
 }
@@ -60,6 +62,21 @@ show-actives {
     display: none;
 }
 update-actives {
+    display: none;
+}
+
+/* CATEGORIAS */
+
+add-categories {
+    display: none;
+}
+delete-categories {
+    display: none;
+}
+show-categories {
+    display: none;
+}
+update-categories {
     display: none;
 }
 
@@ -441,6 +458,10 @@ header {
     color: white;
     padding: 20px;
     border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3px;
 
     transition: background-color 0.3s ease;
 }
@@ -479,3 +500,30 @@ update-actives {
 
 /* LISTAR ACTIVOS */
 
+#ShowActiveForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.contenedor-mostrar {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.contenedor-tarjeta {
+    background-color: white;
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 0.1fr;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    border: 4px solid black;
+}

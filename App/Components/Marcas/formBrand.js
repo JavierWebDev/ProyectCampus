@@ -1,103 +1,41 @@
-import { getData, postDatas } from '/../../../APIs/actives.js';
+import { getData, postDatas } from '/../../../APIs/API.js';
 
-export class addActives extends HTMLElement {
+export class addBrand extends HTMLElement {
     constructor() {
         super();
         this.render();
         this.saveData();
     }
     render() {
-      const endpoint = 'actives'
+      const endpoint = 'brand'
         this.innerHTML = /* html */ `
-        <section id="AddActiveForm" class="contenedor-formulario">
+        <section id="AddBrandForm" class="contenedor-formulario">
 
         <div class="contenedor-titulo_principal">
-          <h1 id="TituloFormulario" class="titulo-formulario">Añadir Activo</h1>
+          <h1 id="TituloFormulario" class="titulo-formulario">Añadir Marca</h1>
         </div>
 
         <dialog id="Ventana">
           <h1>aaa</h1>
         </dialog>
-        <form id="activesForm" class="cont-form">
+        <form id="brandForm" class="cont-form">
         
         <div class="cont-form_inputs">
-          <h1 class="text-id" id="ShowID"></h1>    
+          <h1 class="text-id" id="ShowIDbrands"></h1>    
 
           <div  class="cont-input">
-            <h3>Nombre Del Activo</h3>
-            <input class="input-form" name="nombreActivo"  id="nombreActivo" placeholder=" digita el codigo de la transaccion ">
+            <h3>Nombre De La Marca</h3>
+            <input class="input-form" name="nombre"  id="nombreMarca" placeholder=" digita el codigo de la transaccion ">
           </div>
-        
-            <div  class="cont-input">
-              <h3>Codigo De La Transacción </h3>
-              <input class="input-form" name="codigoTransaccion"  id="codigoTransaccion" placeholder=" digita el codigo de la transaccion ">
-            </div>
-            
-            <div class="cont-input">
-              <h3>Nro. De Formulario </h3>
-              <input class="input-form" name="nroFormulario" id="nroFormulario" placeholder=" digita el codigo de la transaccion ">
-            </div>
-            
-            <div class="cont-input">
-              <h3>Valor Del Producto </h3>
-              <input class="input-form" name="valorActivo" id="valorActivo" placeholder=" digita el codigo de la transaccion ">
-            </div>
-
-            <div class="cont-input">
-              <h3>Proveedor</h3>
-              <input class="input-form" name="proveedorActivo" id="proveedorActivo" placeholder=" digita el codigo de la transaccion ">
-            </div>
-
-            <div class="cont-input">
-              <h3>Nro Serial </h3>
-              <input class="input-form" name="serialActivo" id="serialActivo" placeholder=" digita el codigo de la transaccion ">
-            </div> 
-            <tables></tables> 
-            <div class="cont-input">
-              <h3>Empresa Responsable </h3>
-              <input class="input-form" name="empresaResponsable" id="empresaResponsable" placeholder=" digita el codigo de la transaccion ">
-            </div>
-
-            <div class="contenedor-inputs_seleccionar">
-              <div class="cont-input_select">
-                <h3 class="titulo-select">Marca </h3>
-                <select class="input-seleccionar" name="marcaActivo" id="marcaActivo">
-                </select>
-              </div>
-              
-              <div class="cont-input_select">
-                <h3 class="titulo-select">Categoria Del Activo </h3>
-                <select class="input-seleccionar" name="categoriaActivo" id="categoriaActivo">
-                </select>
-              </div>
-              
-              <div class="cont-input_select">
-                <h3 class="titulo-select">Tipo De Activo </h3>
-                <select class="input-seleccionar" name="tipoActivo"  id="tipoActivo">
-                </select>
-              </div>
-
-              <div class="cont-input_select">
-                <h3 class="titulo-select">Estado </h3>
-                <select class="input-seleccionar" name="estado" id="estadoActivo">
-                  <option value="0"> No Asignado</option> 
-                  <option value="1"> Aignado</option> 
-                  <option value="2"> Dado De Baja Por Daño</option> 
-                  <option value="3"> En Reparacion y/o Garantia</option> 
-                </select>
-              </div>  
-            </div>
-
-
           </div>
-          <a href="#" class="input-anadir" id="BtnEnviarForm">Save</a>
+          <a href="#" class="input-anadir" id="BtnEnviarFormBrands">Save</a>
         </form>
 
-        <dialog id="VentanaConfirmar" class="cont-dialog" closed>
+        <dialog id="VentanaConfirmarBrands" class="cont-dialog" closed>
         <h1 class="titulo-dialog">Estas seguro que deseas eliminar el activo?</h1>
   
-        <a href="#" id="BtnCancelar" class="btn-cancelar">Cancelar</a>
-        <a href="#" id="BtnEnviar" class="btn-aceptar">Aceptar</a>
+        <a href="#" id="BtnCancelarBrands" class="btn-cancelar">Cancelar</a>
+        <a href="#" id="BtnEnviarBrands" class="btn-aceptar">Aceptar</a>
       </dialog>
       </section>
         `
@@ -105,8 +43,8 @@ export class addActives extends HTMLElement {
     }
 
     showData = () => {
-      const endpoint = 'actives'
-      const showID = document.querySelector("#ShowID")
+      const endpoint = 'brand'
+      const showID = document.querySelector("#ShowIDbrands")
       
 
       addEventListener("DOMContentLoaded", () => {
@@ -120,18 +58,18 @@ export class addActives extends HTMLElement {
         }
         })
         .then(responseData => {
-          showID.innerHTML = `A-${responseData.length + 1}`
+          showID.innerHTML = `B-${responseData.length + 1}`
         })
       })
     }
 
     saveData = () =>{
-      const frmRegistro = document.querySelector('#activesForm');
-      const endpoint = 'actives'
-      const showID = document.querySelector("#ShowID")
-      const btnCancelar = document.querySelector("#BtnCancelar")
-      const BtnEnviarForm = document.querySelector("#BtnEnviarForm")
-      const modal = document.getElementById("VentanaConfirmar")
+      const frmRegistro = document.querySelector('#brandForm');
+      const endpoint = 'brand'
+      const showID = document.querySelector("#ShowIDbrands")
+      const btnCancelar = document.querySelector("#BtnCancelarBrands")
+      const BtnEnviarForm = document.querySelector("#BtnEnviarFormBrands")
+      const modal = document.getElementById("VentanaConfirmarBrands")
       const inputs = document.querySelectorAll(".input-form")
 
 
@@ -142,7 +80,7 @@ export class addActives extends HTMLElement {
         modal.style.display = "none"
       })
 
-      document.querySelector("#BtnEnviar").addEventListener("click",(e) =>{
+      document.querySelector("#BtnEnviarBrands").addEventListener("click",(e) =>{
         let datos = Object.fromEntries(new FormData(frmRegistro).entries());
          datos.id = showID.innerHTML
 
@@ -170,7 +108,7 @@ export class addActives extends HTMLElement {
                     }
                   })
                   .then(responseData => {
-                    showID.innerHTML = `A-${responseData.length}`
+                    showID.innerHTML = `B-${responseData.length}`
                     inputs.forEach(element => {
                       element.value = ""
                       modal.style.display = "none"
@@ -194,4 +132,4 @@ export class addActives extends HTMLElement {
    this.showData()  
 }
 }
-customElements.define("add-actives",addActives)
+customElements.define("add-brands",addBrand)

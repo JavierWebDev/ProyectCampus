@@ -1,4 +1,4 @@
-import { deleteData, getElementData } from '/../../APIs/actives.js';
+import { deleteData, getElementData } from '/../../APIs/API.js';
 
 export class deleteActives extends HTMLElement {
     constructor() {

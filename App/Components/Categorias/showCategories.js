@@ -1,26 +1,26 @@
-import {  getElementData} from '/../../APIs/actives.js';
+import {  getElementData} from '/../../APIs/API.js';
 
-export class showActive extends HTMLElement {
+export class showCategories extends HTMLElement {
     constructor() {
         super();
         this.render();
-        this.showActive();
+        this.showCategorie();
     }
     render() {
         this.innerHTML = /* html */ `
-        <input class="input-form" id="activoBuscado" placeholder=" digita el nombre del producto">
-        <button id="buscarActivo">ingresar</button>
-        <div id="activeFoundShow"></div>
+        <input class="input-form" id="categoriaBuscado" placeholder=" digita el nombre del producto">
+        <button id="buscarCategoria">ingresar</button>
+        <div id="categorieFoundShow"></div>
         `
     }
     
-    showActive() {
-        const endpoint = 'actives'
-        const buscarActivo = this.querySelector('#buscarActivo');
+    showCategorie() {
+        const endpoint = 'categories'
+        const buscarActivo = this.querySelector('#buscarCategoria');
         buscarActivo.addEventListener('click', async (e) => {
             e.preventDefault();
-            const activoBuscado = this.querySelector('#activoBuscado').value;
-            getElementData(endpoint, activoBuscado )
+            const categoriaBuscado = this.querySelector('#categoriaBuscado').value;
+            getElementData(endpoint, categoriaBuscado )
             .then(response => {
                 if (response.ok) {
                     return response.json();
@@ -31,22 +31,20 @@ export class showActive extends HTMLElement {
             .then(responseData => {
                 console.log(responseData)
                     if (responseData !== undefined && responseData !== null) {                     
-                        const activeFound = document.getElementById("activeFoundShow");
+                        const activeFound = document.getElementById("categorieFoundShow");
                         let idShow = responseData.id
-                        let nameShow = responseData.nombreActivo
-                        let estadoShow = responseData.estado
+                        let nameShow = responseData.nombre
                         activeFound.innerHTML=`
-                            <section id="showActive" class="contenedor-formulario">
+                            <section id="showCategoria" class="contenedor-formulario">
                                 <div>
                                     <h1>id activo: ${idShow} </h1>
                                     <h1>${nameShow}</h1>
-                                    <h1>${estadoShow}</h1>
                                 </div>
                             </section>`
                             
 
                     } else {
-                        console.log("Activo no encontrado");
+                        console.log("Categoria no encontrada");
                     }
                 
             })
@@ -56,4 +54,4 @@ export class showActive extends HTMLElement {
     }); 
     }
 }
-customElements.define("show-actives",showActive)
+customElements.define("show-categories",showCategories)

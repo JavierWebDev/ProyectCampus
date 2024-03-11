@@ -36,19 +36,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
 /* ACTIVOS */
 
+
+// WEB COMPONENTS
+
+
+// ACTIVOS
+
+const AnadirActivo = document.querySelector("add-actives")
+const EditarActivo = document.querySelector("update-actives")
+const EliminarActivo = document.querySelector("delete-actives")
+const ListarActivo = document.querySelector("show-actives")
+
 // BOTONES
 
 const BtnAnadirActivo = document.querySelector("#BtnAddActive")
 const BtnEditarActivo = document.querySelector("#BtnEditActive")
 const BtnEliminarActivo = document.querySelector("#BtnDeleteActive")
 const BtnListarActivo = document.querySelector("#BtnListActive")
-
-// WEB COMPONENTS
-
-const AnadirActivo = document.querySelector("add-actives")
-const EditarActivo = document.querySelector("update-actives")
-const EliminarActivo = document.querySelector("delete-actives")
-const ListarActivo = document.querySelector("show-actives")
 
 BtnAnadirActivo.addEventListener("click", (e) => {
     AnadirActivo.style.display = "block"
@@ -87,6 +91,62 @@ BtnListarActivo.addEventListener("click", (e) => {
     EditarActivo.style.display = "none"
     AnadirActivo.style.display = "none"
     EditarActivo.style.display = "none"
+
+    e.preventDefault()
+    e.stopImmediatePropagation()
+})
+
+// CATEGORIAS
+
+const AnadirCategorias = document.querySelector("add-categories")
+const EditarCategorias = document.querySelector("update-categories")
+const EliminarCategorias = document.querySelector("delete-categories")
+const ListarCategorias = document.querySelector("show-categories")
+
+// BOTONES
+
+const BtnAnadirCategorias = document.querySelector("#BtnAddCategories")
+const BtnEditarCategorias = document.querySelector("#BtnEditCategories")
+const BtnEliminarCategorias = document.querySelector("#BtnDeleteCategories")
+const BtnListarCategorias = document.querySelector("#BtnListCategories")
+
+BtnAnadirCategorias.addEventListener("click", (e) => {
+    AnadirCategorias.style.display = "block"
+
+    EditarCategorias.style.display = "none"
+    EliminarCategorias.style.display = "none"
+    ListarCategorias.style.display = "flex"
+
+    e.preventDefault()
+    e.stopImmediatePropagation()
+})
+
+BtnEliminarCategorias.addEventListener("click", (e) => {
+    EliminarCategorias.style.display = "block"
+
+    EditarCategorias.style.display = "none"
+    AnadirCategorias.style.display = "none"
+    ListarCategorias.style.display = "none"
+
+    e.preventDefault()
+    e.stopImmediatePropagation()
+})
+BtnEditarCategorias.addEventListener("click", (e) => {
+    EditarCategorias.style.display = "block"
+
+    EliminarCategorias.style.display = "none"
+    AnadirCategorias.style.display = "none"
+    ListarCategorias.style.display = "none"
+
+    e.preventDefault()
+    e.stopImmediatePropagation()
+})
+BtnListarCategorias.addEventListener("click", (e) => {
+    ListarCategorias.style.display = "block"
+
+    EditarCategorias.style.display = "none"
+    AnadirCategorias.style.display = "none"
+    EditarCategorias.style.display = "none"
 
     e.preventDefault()
     e.stopImmediatePropagation()

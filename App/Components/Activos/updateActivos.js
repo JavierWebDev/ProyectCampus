@@ -1,4 +1,4 @@
-import {  getElementData, updateData  } from '/../../APIs/actives.js';
+import {  getElementData, updateData  } from '/../../APIs/API.js';
 
 export class updateActive extends HTMLElement {
     constructor() {
