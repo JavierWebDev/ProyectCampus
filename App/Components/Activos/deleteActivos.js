@@ -8,64 +8,143 @@ export class deleteActives extends HTMLElement {
     }
     render() {
         this.innerHTML = /* html */ `
-        <section id="DeleteActiveForm" class="contenedor-formulario">
-      <div class="contenedor-titulo_principal">
-        <h1 id="TituloFormulario" class="titulo-formulario"> Eliminar Activo</h1>
-      </div>
-        <div class="cont-form_inputs">
-            <input class="input-form" id="activoBuscado" placeholder="Digita el nombre del producto">
-            <a href="#" class="button-delete" id="eliminarActivo">Eliminar</a>
-        </div>
-
-        <dialog id="VentanaConfirmarEliminar" class="cont-dialog" closed>
-            <h1 class="titulo-dialog">Estas seguro que deseas eliminar el activo?</h1>
-
-            <a href="#" id="BtnCancelarEliminar" class="btn-cancelar">Cancelar</a>
-            <a href="#" id="BtnEnviarEliminar" class="btn-aceptar">Aceptar</a>
-        </dialog>
-    </section>
-        `;
-    }
+            <section id="ShowActiveForm">
+                <div class="contenedor-inputs_buscar">
+                    <input class="input-form" id="activoBuscado" placeholder=" digita el nombre del producto">
+                    <button id="buscarActivo" class="button-filtrar"><box-icon name='search-alt-2' color='#ffffff' ></box-icon></button>
+                </div>
     
-    deleteActive() {
-        const endpoint = 'actives'
-        const buscarActivo = document.querySelector('#eliminarActivo');
-        const btnCancelar = document.querySelector("#BtnCancelarEliminar")
-        const BtnConfirmar = document.querySelector("#BtnEnviarEliminar")
-        const modal = document.getElementById("VentanaConfirmarEliminar")
+                <dialog id="VentanaConfirmarEliminar" class="cont-dialog" closed>
+                    <h1 class="titulo-dialog">Estas seguro que deseas eliminar el activo?</h1>
+    
+                    <a href="#" id="BtnCancelar" class="btn-cancelar">Cancelar</a>
+                    <a href="#" id="BtnEnviar" class="btn-aceptar">Aceptar</a>
+                </dialog>
+    
+                <dialog id="VentanaDenegarEliminarActivos" class="cont-dialog" closed>
+                  <h1 class="titulo-dialog">El activo no ha sido dado de baja!</h1>
+    
+                  <a href="#" id="BtnCerrarDenegar" class="btn-aceptar">Aceptar</a>
+                </dialog>
+    
+                <div id="activesFoundShow" class="contenedor-mostrar"></div>
+            </section>
+            `;
+      }
+    
+      deleteActive() {
+        const endpoint = "actives";
+        const buscarActivo = this.querySelector("#buscarActivo");
+      
+        addEventListener("DOMContentLoaded", async () => {
+          const activoBuscado = document.querySelector("#activoBuscado").value;
 
-        buscarActivo.addEventListener('click', () => {
-            modal.style.display = "flex"
-        })
-        btnCancelar.addEventListener('click', () => {
-            modal.style.display = "none"
-        })
-
-        BtnConfirmar.addEventListener('click', async (e) => {
-            e.preventDefault();
-            const activoBuscado = this.querySelector('#activoBuscado').value;
-            getElementData(endpoint,activoBuscado)
-            .then(response => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error(`Error en la solicitud POST: ${response.status} - ${response.statusText}`);
-                }
+          buscarActivo.addEventListener('click', )
+      
+          getData(endpoint)
+            .then((response) => {
+              if (response.ok) {
+                return response.json();
+              } else {
+                throw new Error(
+                  `Error en la solicitud POST: ${response.status} - ${response.statusText}`
+                );
+              }
             })
-            .then(responseData => {
-                    if (responseData !== undefined && responseData !== null) {
-                        deleteData( endpoint, activoBuscado);
-                        console.log("Activo eliminado correctamente");
-                        modal.style.display = "none"
-                    } else {
-                        console.log("Activo no encontrado");
-                    }
+            .then((responseData) => {
+              if (responseData !== undefined && responseData !== null) {
+                responseData.forEach(activo => {
+                  const clon = document.createElement("div");
+                  clon.classList.add("contenedor-tarjeta");
+      
+                  clon.innerHTML = `
+                    <h1 class="tarjeta-listar_id">${activo.id}</h1>
+                    <h2 class="tarjeta-listar_titulo">${activo.nombreActivo}</h2>
+                    <p class="tarjeta-listar_estado">${activo.estado}</p>
+                    <a href="#" class="button-delete_listar">X</a>
+                  `;
+      
+                  document.querySelector("#activesFoundShow").append(clon);
+                });
                 
+                const btnEliminarLista = document.querySelectorAll(".button-delete_listar");
+      
+                btnEliminarLista.forEach(boton => {
+                  const modalEliminar = document.querySelector("#VentanaConfirmarEliminar");
+                  const modalDenegar = document.querySelector("#VentanaDenegarEliminarActivos");
+      
+                  boton.addEventListener("click", (e) => {
+                    const activoEstado = e.target.parentElement.querySelector('.tarjeta-listar_estado').innerText;
+                    
+                    if (activoEstado === "2") {
+                      modalEliminar.style.display = "flex";
+    
+                      document.querySelector("#BtnCancelarListar").addEventListener("click", (e) => {
+                        modalEliminar.style.display = "none"
+                      })
+                      document.querySelector("#BtnEnviarListar").addEventListener("click", (e) => {
+                        deleteData(endpoint, activo)
+    
+                        modalEliminar.style.display = "none"
+                      })
+    
+    
+                    } else {
+                      document.querySelector("#BtnCerrarDenegar").addEventListener("click", (e) => {
+                        modalDenegar.style.display = "none"
+                      })
+    
+                      modalDenegar.style.display = "flex";
+                    }
+      
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                  });
+                });
+      
+                // Manejador de evento para el botón cancelar
+                document.querySelector("#BtnCancelarListar").addEventListener("click", (e) => {
+                  const modalDenegar = document.querySelector("#VentanaDenegarEliminarActivos");
+                  modalDenegar.style.display = "none";
+                });
+      
+              } else {
+                console.log("Activo no encontrado");
+              }
             })
-            .catch (error =>  {
-                console.error('Error:', error.message);
-            })
-    }); 
-    }
+            .catch((error) => {
+              console.error("Error:", error.message);
+            });
+        });
+      }
 }
-customElements.define("delete-actives", deleteActives);
+// customElements.define("delete-actives", deleteActives);
+
+
+// const searchBar = document.getElementById('SearchInput');
+
+// searchBar.addEventListener('input', function() {
+//     const searchText = searchBar.value.toLowerCase(); 
+
+//     const marvelHeroes = document.querySelectorAll('#ContTarjetasMarvel .tarjeta');
+//     const dcHeroes = document.querySelectorAll('#ContTarjetasDC .tarjeta');
+//     const titulos = document.querySelectorAll('.titulo_main')
+
+//     marvelHeroes.forEach(hero => {
+//         const heroName = hero.querySelector('.cont-titulo').textContent.toLowerCase();
+//         if (heroName.includes(searchText)) {
+//             hero.style.display = 'block'; 
+//         } else {
+//             hero.style.display = 'none';
+//         }
+//     });
+
+//     dcHeroes.forEach(hero => {
+//         const heroName = hero.querySelector('.cont-titulo').textContent.toLowerCase();
+//         if (heroName.includes(searchText)) {
+//             hero.style.display = 'block';
+//         } else {
+//             hero.style.display = 'none';
+//         }
+//     });
+// });

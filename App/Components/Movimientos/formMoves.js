@@ -6,8 +6,9 @@ export class addMoves extends HTMLElement {
         this.render();
         this.saveData();
     }
+    /* id, fecha, activoId, comentario, asignacionId */
     render() {
-      const endpoint = 'actives'
+      const endpoint = 'movement'
         this.innerHTML = /* html */ `
         <section id="AddMovesForm" class="contenedor-formulario">
 
@@ -24,80 +25,35 @@ export class addMoves extends HTMLElement {
           <h1 class="text-id" id="ShowIDmoves"></h1>    
 
           <div  class="cont-input">
-            <h3>Nombre Del Activo</h3>
-            <input class="input-form" name="nombreActivo"  id="fecha" type="date">
+            <h3>Fecha Del Movimiento</h3>
+            <input class="input-form" name="fecha"  id="fecha" type="date">
           </div>
         
             <div  class="cont-input">
-              <h3>Codigo De La Transacción </h3>
-              <input class="input-form" name="codigoTransaccion"  id="codigoTransaccion" placeholder=" digita el codigo de la transaccion ">
+              <h3>Activo Del Movimiento </h3>
+              <select class="input-seleccionar" name="activoId"  id="activoAsignado">
+              </select>
             </div>
             
             <div class="cont-input">
-              <h3>Nro. De Formulario </h3>
-              <input class="input-form" name="nroFormulario" id="nroFormulario" placeholder=" digita el codigo de la transaccion ">
+              <h3>Comentario </h3>
+              <input class="input-form" name="comentario" id="comentario" placeholder="Ingresa comentarios">
             </div>
             
             <div class="cont-input">
-              <h3>Valor Del Producto </h3>
-              <input class="input-form" name="valorActivo" id="valorActivo" placeholder=" digita el codigo de la transaccion ">
+        
+              <h3>Asignacion</h3>
+              <input class="input-form" name="asignacionId" id="valorActivo" placeholder=" digita el codigo de la transaccion ">
             </div>
-
-            <div class="cont-input">
-              <h3>Proveedor</h3>
-              <input class="input-form" name="proveedorActivo" id="proveedorActivo" placeholder=" digita el codigo de la transaccion ">
-            </div>
-
-            <div class="cont-input">
-              <h3>Nro Serial </h3>
-              <input class="input-form" name="serialActivo" id="serialActivo" placeholder=" digita el codigo de la transaccion ">
-            </div> 
-            <tables></tables> 
-            <div class="cont-input">
-              <h3>Empresa Responsable </h3>
-              <input class="input-form" name="empresaResponsable" id="empresaResponsable" placeholder=" digita el codigo de la transaccion ">
-            </div>
-
-            <div class="contenedor-inputs_seleccionar">
-              <div class="cont-input_select">
-                <h3 class="titulo-select">Marca </h3>
-                <select class="input-seleccionar" name="marcaActivo" id="marcaActivo">
-                </select>
-              </div>
-              
-              <div class="cont-input_select">
-                <h3 class="titulo-select">Categoria Del Activo </h3>
-                <select class="input-seleccionar" name="categoriaActivo" id="categoriaActivo">
-                </select>
-              </div>
-              
-              <div class="cont-input_select">
-                <h3 class="titulo-select">Tipo De Activo </h3>
-                <select class="input-seleccionar" name="tipoActivo"  id="tipoActivo">
-                </select>
-              </div>
-
-              <div class="cont-input_select">
-                <h3 class="titulo-select">Estado </h3>
-                <select class="input-seleccionar" name="estado" id="estadoActivo">
-                  <option value="0"> No Asignado</option> 
-                  <option value="1"> Aignado</option> 
-                  <option value="2"> Dado De Baja Por Daño</option> 
-                  <option value="3"> En Reparacion y/o Garantia</option> 
-                </select>
-              </div>  
-            </div>
-
-
           </div>
-          <a href="#" class="input-anadir" id="BtnEnviarForm">Save</a>
+          <a href="#" class="input-anadir" id="BtnEnviarFormMoves">Save</a>
         </form>
 
-        <dialog id="VentanaConfirmar" class="cont-dialog" closed>
+        <dialog id="VentanaConfirmarMoves" class="cont-dialog" closed>
         <h1 class="titulo-dialog">Estas seguro que deseas eliminar el activo?</h1>
   
-        <a href="#" id="BtnCancelar" class="btn-cancelar">Cancelar</a>
-        <a href="#" id="BtnEnviar" class="btn-aceptar">Aceptar</a>
+        <a href="#" id="BtnCancelarMoves" class="btn-cancelar">Cancelar</a>
+        <a href="#" id="BtnEnviarMoves" class="btn-aceptar">Aceptar</a>
       </dialog>
       </section>
         `
@@ -105,8 +61,8 @@ export class addMoves extends HTMLElement {
     }
 
     showData = () => {
-      const endpoint = 'actives'
-      const showID = document.querySelector("#ShowID")
+      const endpoint = 'movement'
+      const showID = document.querySelector("#ShowIDmoves")
       
 
       addEventListener("DOMContentLoaded", () => {
@@ -120,18 +76,18 @@ export class addMoves extends HTMLElement {
         }
         })
         .then(responseData => {
-          showID.innerHTML = `A-${responseData.length + 1}`
+          showID.innerHTML = `M-${responseData.length + 1}`
         })
       })
     }
 
     saveData = () =>{
-      const frmRegistro = document.querySelector('#activesForm');
-      const endpoint = 'actives'
-      const showID = document.querySelector("#ShowID")
-      const btnCancelar = document.querySelector("#BtnCancelar")
-      const BtnEnviarForm = document.querySelector("#BtnEnviarForm")
-      const modal = document.getElementById("VentanaConfirmar")
+      const frmRegistro = document.querySelector('#MovesForm');
+      const endpoint = 'movement'
+      const showID = document.querySelector("#ShowIDmoves")
+      const btnCancelar = document.querySelector("#BtnCancelarMoves")
+      const BtnEnviarForm = document.querySelector("#BtnEnviarFormMoves")
+      const modal = document.getElementById("VentanaConfirmarMoves")
       const inputs = document.querySelectorAll(".input-form")
 
 
@@ -142,7 +98,7 @@ export class addMoves extends HTMLElement {
         modal.style.display = "none"
       })
 
-      document.querySelector("#BtnEnviar").addEventListener("click",(e) =>{
+      document.querySelector("#BtnEnviarMoves").addEventListener("click",(e) =>{
         let datos = Object.fromEntries(new FormData(frmRegistro).entries());
          datos.id = showID.innerHTML
 
@@ -170,7 +126,7 @@ export class addMoves extends HTMLElement {
                     }
                   })
                   .then(responseData => {
-                    showID.innerHTML = `A-${responseData.length}`
+                    showID.innerHTML = `M-${responseData.length}`
                     inputs.forEach(element => {
                       element.value = ""
                       modal.style.display = "none"
@@ -194,4 +150,4 @@ export class addMoves extends HTMLElement {
    this.showData()  
 }
 }
-customElements.define("add-actives",addActives)
+customElements.define("add-moves",addMoves)

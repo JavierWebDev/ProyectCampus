@@ -8,9 +8,9 @@ export class deleteActives extends HTMLElement {
     }
     render() {
         this.innerHTML = /* html */ `
-        <section id="DeleteActiveForm" class="contenedor-formulario">
+        <section id="DeleteMovesForm" class="contenedor-formulario">
       <div class="contenedor-titulo_principal">
-        <h1 id="TituloFormulario" class="titulo-formulario"> Eliminar Activo</h1>
+        <h1 id="TituloFormulario" class="titulo-formulario"> Eliminar Movimiento</h1>
       </div>
         <div class="cont-form_inputs">
             <input class="input-form" id="activoBuscado" placeholder="Digita el nombre del producto">
@@ -28,7 +28,7 @@ export class deleteActives extends HTMLElement {
     }
     
     deleteActive() {
-        const endpoint = 'actives'
+        const endpoint = 'movement'
         const buscarActivo = this.querySelector('#buscarActivo');
         buscarActivo.addEventListener('click', async (e) => {
             e.preventDefault();

@@ -1,4 +1,4 @@
-import { getElementData, getData } from "/../../APIs/API.js";
+import { getElementData, getData, deleteData } from "/../../APIs/API.js";
 
 export class showActive extends HTMLElement {
   constructor() {
@@ -14,6 +14,10 @@ export class showActive extends HTMLElement {
                 <button id="buscarActivo" class="button-filtrar"><box-icon name='search-alt-2' color='#ffffff' ></box-icon></button>
             </div>
 
+            <dialog id="VentanaDetalles" class="cont-dialog" open>
+
+            </dialog>
+
             <div id="activesFoundShow" class="contenedor-mostrar"></div>
         </section>
         `;
@@ -22,8 +26,10 @@ export class showActive extends HTMLElement {
   showActive() {
     const endpoint = "actives";
     const buscarActivo = this.querySelector("#buscarActivo");
+  
     addEventListener("DOMContentLoaded", async () => {
-      const activoBuscado = document.querySelector('#activoBuscado').value;
+      const activoBuscado = document.querySelector("#activoBuscado").value;
+  
       getData(endpoint)
         .then((response) => {
           if (response.ok) {
@@ -35,27 +41,43 @@ export class showActive extends HTMLElement {
           }
         })
         .then((responseData) => {
-          console.log(responseData);
           if (responseData !== undefined && responseData !== null) {
             responseData.forEach(activo => {
-                const clon = document.createElement("div")
-                clon.classList.add("contenedor-tarjeta")
-
-                clon.innerHTML=`
-            
+              const clon = document.createElement("div");
+              clon.classList.add("contenedor-tarjeta");
+  
+              clon.innerHTML = `
                 <h1 class="tarjeta-listar_id">${activo.id}</h1>
-        
                 <h2 class="tarjeta-listar_titulo">${activo.nombreActivo}</h2>
-        
                 <p class="tarjeta-listar_estado">${activo.estado}</p>
+                <a href="#" class="button-listar"><box-icon name='info-circle' color='#ffffff' ></box-icon></a>
+              `;
+  
+              document.querySelector("#activesFoundShow").append(clon);
+            });
             
-                <a href="#" class="button-delete" id="BtnEliminarActivoListar">X</a>
-
-                    
+            const btnDetallesLista = document.querySelectorAll(".button-delete_listar");
+  
+            btnDetallesLista.forEach(boton => {
+              const modalInformacion = document.querySelector("#VentanaDetalles");
+  
+              boton.addEventListener("click", (e) => {
+                modalInformacion.style.display = "flex"
+                modalInformacion.innerHTML = `
+                <h1>${activo.nombreActivo}</h1>
                 `
-
-                document.querySelector("#activesFoundShow").append(clon)
-            })
+  
+                e.preventDefault();
+                e.stopImmediatePropagation();
+              });
+            });
+  
+            // Manejador de evento para el botón cancelar
+            document.querySelector("#BtnCancelarListar").addEventListener("click", (e) => {
+              const modalDenegar = document.querySelector("#VentanaDenegarListarActivos");
+              modalDenegar.style.display = "none";
+            });
+  
           } else {
             console.log("Activo no encontrado");
           }
