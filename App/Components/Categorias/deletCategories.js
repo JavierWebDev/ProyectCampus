@@ -1,69 +1,116 @@
-import { deleteData, getElementData } from '/../../APIs/API.js';
+import { deleteData, getData } from '/../../APIs/API.js';
 
 export class deleteCategories extends HTMLElement {
     constructor() {
         super();
         this.render();
-        this.deleteActive();
+        this.deleteCategories();
     }
     render() {
         this.innerHTML = /* html */ `
-        <section id="DeleteCategorieForm" class="contenedor-formulario">
-      <div class="contenedor-titulo_principal">
-        <h1 id="TituloFormulario" class="titulo-formulario"> Eliminar Activo</h1>
-      </div>
-        <div class="cont-form_inputs">
-            <input class="input-form" id="categoriaBuscado" placeholder="Digita el nombre de la categoria">
-            <a href="#" class="button-delete" id="buscarCategoria">Eliminar</a>
-        </div>
+        <section id="DeleteCategorie">
+              <div class="contenedor-titulo_principal">
+                  <h1 class="titulo-formulario">Eliminar Categoria</h1>
+              </div>
 
-        <dialog id="VentanaConfirmarDelCategoria" class="cont-dialog" closed>
-            <h1 class="titulo-dialog">Estas seguro que deseas eliminar la Categoria?</h1>
-
-            <a href="#" id="BtnCancelarDelCategoria" class="btn-cancelar">Cancelar</a>
-            <a href="#" id="BtnEnviarDelCategoria" class="btn-aceptar">Aceptar</a>
-        </dialog>
-    </section>
+              <div class="cont-form_inputs">
+                <div class="contenedor-inputs_buscar">
+                    <input class="input-form" id="categoriaBuscadoEliminar" placeholder="Digite el nombre de la categoria">
+                    <button id="buscarCategoriaEliminar" class="button-filtrar"><box-icon name='trash' type='solid' color='#ffffff' ></box-icon></button>
+                </div>
+              </div>
+    
+                <dialog id="VentanaConfirmarEliminarCategoria" class="cont-dialog" closed>
+                    <h1 class="titulo-dialog">Estas seguro que deseas eliminar la categoria?</h1>
+    
+                    <a href="#" id="BtnCancelarEliminarCategoria" class="btn-cancelar">Cancelar</a>
+                    <a href="#" id="BtnEnviarEliminarCategoria" class="btn-aceptar">Aceptar</a>
+                </dialog>
+    
+                <div id="categoriesFoundShowEliminar" class="contenedor-mostrar"></div>
+            </section>
         `;
     }
 
-    deleteActive() {
-        const btnCancelar = document.querySelector("#BtnCancelarDelCategoria")
-        const BtnConfirmar = document.querySelector("#BtnEnviarDelCategoria")
-        const modal = document.getElementById("VentanaConfirmarDelCategoria")
-        const buscarActivo = this.querySelector('#buscarCategoria');
+    deleteCategories() {
+        const endpoint = "categories";
+        const buscarCategoria = document.querySelector("#categoriaBuscadoEliminar");
+        
+      
+        addEventListener("DOMContentLoaded", async () => {
+          
+          
+          getData(endpoint)
+            .then((response) => {
+              if (response.ok) {
+                return response.json();
+              } else {
+                throw new Error(
+                  `Error en la solicitud POST: ${response.status} - ${response.statusText}`
+                );
+              }
+            })
+            .then((responseData) => {
+              
+              if (responseData !== undefined && responseData !== null) {
+                buscarCategoria.addEventListener('input', function(){
+                  const contenedorMostrar = document.querySelector("#categoriesFoundShowEliminar");
+                  contenedorMostrar.innerHTML = '';
 
-        buscarActivo.addEventListener('click', () => {
-            modal.style.display = "flex"
-        })
-        btnCancelar.addEventListener('click', () => {
-            modal.style.display = "none"
-        })
+                  responseData.forEach(categoria => {
+                    const categoriaBuscado = document.querySelector("#categoriaBuscadoEliminar").value;
+                    
+                    const clon = document.createElement("div");
+                        clon.classList.add("contenedor-tarjeta");
+                        clon.innerHTML = `
+                            <h1 class="tarjeta-listar_id">${categoria.id}</h1>
+                            <h2 class="tarjeta-listar_titulo">${categoria.nombre}</h2>
+                            <a href="#" class="button-delete">X</a>
+                        `;
 
-        const endpoint = 'categories'
-        BtnConfirmar.addEventListener('click', async (e) => {
-            e.preventDefault();
-            const CategoriaBuscado = this.querySelector('#categoriaBuscado').value;
-            getElementData(endpoint, CategoriaBuscado)
-                .then(response => {
-                    if (response.ok) {
-                        return response.json();
-                    } else {
-                        throw new Error(`Error en la solicitud POST: ${response.status} - ${response.statusText}`);
-                    }
-                })
-                .then(responseData => {
-                    if (responseData !== undefined && responseData !== null) {
-                        deleteData(endpoint, CategoriaBuscado);
-                        console.log("Categoria eliminada correctamente");
-                    } else {
-                        console.log("Categoria no encontrada");
-                    }
+                        contenedorMostrar.append(clon)
 
-                })
-                .catch(error => {
-                    console.error('Error:', error.message);
-                })
+                    const btnEliminarLista = document.querySelectorAll(".button-delete");
+
+                    btnEliminarLista.forEach(boton => {
+                      const modalEliminar = document.querySelector("#VentanaConfirmarEliminarCategoria");
+
+          
+                      boton.addEventListener("click", (e) => {
+                          modalEliminar.style.display = "flex";
+        
+                          document.querySelector("#BtnCancelarEliminarCategoria").addEventListener("click", (e) => {
+                            modalEliminar.style.display = "none"
+                          })
+                          document.querySelector("#BtnEnviarEliminarCategoria").addEventListener("click", (e) => {
+                            deleteData(endpoint, categoria.id)
+        
+                            modalEliminar.style.display = "none"
+                          })
+          
+                        e.preventDefault();
+                        e.stopImmediatePropagation();
+                      });
+                    });
+                    
+                      const categoriaId = categoria.id
+                      if (categoriaId.includes(categoriaBuscado)) {
+                        clon.style.display = 'grid'
+                      }else if(categoriaId !== categoriaBuscado){
+                        clon.style.display = 'none'
+                      }
+                  
+                });
+    
+                });
+      
+              } else {
+                console.log("Activo no encontrado");
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error.message);
+            });
         });
     }
 }

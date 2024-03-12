@@ -47,6 +47,20 @@ const EditarActivo = document.querySelector("update-actives")
 const EliminarActivo = document.querySelector("delete-actives")
 const ListarActivo = document.querySelector("show-actives")
 
+// CATEGORIAS
+
+const AnadirCategorias = document.querySelector("add-categories")
+const EditarCategorias = document.querySelector("update-categories")
+const EliminarCategorias = document.querySelector("delete-categories")
+const ListarCategorias = document.querySelector("show-categories")
+
+// MARCAS
+
+const AnadirMarcas = document.querySelector("add-brands")
+const EditarMarcas = document.querySelector("update-brands")
+const EliminarMarcas = document.querySelector("delete-brands")
+const ListarMarcas = document.querySelector("show-brands")
+
 // BOTONES
 
 const BtnAnadirActivo = document.querySelector("#BtnAddActive")
@@ -61,6 +75,11 @@ BtnAnadirActivo.addEventListener("click", (e) => {
     EliminarActivo.style.display = "none"
     ListarActivo.style.display = "none"
 
+    AnadirCategorias.style.display = "none"
+    EditarCategorias.style.display = "none"
+    EliminarCategorias.style.display = "none"
+    ListarCategorias.style.display = "none"
+
     e.preventDefault()
     e.stopImmediatePropagation()
 })
@@ -72,6 +91,11 @@ BtnEliminarActivo.addEventListener("click", (e) => {
     AnadirActivo.style.display = "none"
     ListarActivo.style.display = "none"
 
+    AnadirCategorias.style.display = "none"
+    EditarCategorias.style.display = "none"
+    EliminarCategorias.style.display = "none"
+    ListarCategorias.style.display = "none"
+
     e.preventDefault()
     e.stopImmediatePropagation()
 })
@@ -81,6 +105,11 @@ BtnEditarActivo.addEventListener("click", (e) => {
     EliminarActivo.style.display = "none"
     AnadirActivo.style.display = "none"
     ListarActivo.style.display = "none"
+
+    AnadirCategorias.style.display = "none"
+    EditarCategorias.style.display = "none"
+    EliminarCategorias.style.display = "none"
+    ListarCategorias.style.display = "none"
 
     e.preventDefault()
     e.stopImmediatePropagation()
@@ -92,15 +121,16 @@ BtnListarActivo.addEventListener("click", (e) => {
     AnadirActivo.style.display = "none"
     EliminarActivo.style.display = "none"
 
+    AnadirCategorias.style.display = "none"
+    EditarCategorias.style.display = "none"
+    EliminarCategorias.style.display = "none"
+    ListarCategorias.style.display = "none"
+
     e.preventDefault()
+    e.stopImmediatePropagation()
 })
 
-// CATEGORIAS
 
-const AnadirCategorias = document.querySelector("add-categories")
-const EditarCategorias = document.querySelector("update-categories")
-const EliminarCategorias = document.querySelector("delete-categories")
-const ListarCategorias = document.querySelector("show-categories")
 
 // BOTONES
 
@@ -114,7 +144,12 @@ BtnAnadirCategorias.addEventListener("click", (e) => {
 
     EditarCategorias.style.display = "none"
     EliminarCategorias.style.display = "none"
-    ListarCategorias.style.display = "flex"
+    ListarCategorias.style.display = "none"
+
+    ListarActivo.style.display = "none"
+    EditarActivo.style.display = "none"
+    AnadirActivo.style.display = "none"
+    EliminarActivo.style.display = "none"
 
     e.preventDefault()
     e.stopImmediatePropagation()
@@ -127,7 +162,13 @@ BtnEliminarCategorias.addEventListener("click", (e) => {
     AnadirCategorias.style.display = "none"
     ListarCategorias.style.display = "none"
 
+    ListarActivo.style.display = "none"
+    EditarActivo.style.display = "none"
+    AnadirActivo.style.display = "none"
+    EliminarActivo.style.display = "none"
+
     e.preventDefault()
+    e.stopImmediatePropagation()
 })
 BtnEditarCategorias.addEventListener("click", (e) => {
     EditarCategorias.style.display = "block"
@@ -135,6 +176,11 @@ BtnEditarCategorias.addEventListener("click", (e) => {
     EliminarCategorias.style.display = "none"
     AnadirCategorias.style.display = "none"
     ListarCategorias.style.display = "none"
+
+    ListarActivo.style.display = "none"
+    EditarActivo.style.display = "none"
+    AnadirActivo.style.display = "none"
+    EliminarActivo.style.display = "none"
 
     e.preventDefault()
     e.stopImmediatePropagation()
@@ -146,5 +192,11 @@ BtnListarCategorias.addEventListener("click", (e) => {
     AnadirCategorias.style.display = "none"
     EliminarCategorias.style.display = "none"
 
+    ListarActivo.style.display = "none"
+    EditarActivo.style.display = "none"
+    AnadirActivo.style.display = "none"
+    EliminarActivo.style.display = "none"
+
     e.preventDefault()
+    e.stopImmediatePropagation()
 })

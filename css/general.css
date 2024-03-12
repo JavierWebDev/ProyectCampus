@@ -298,6 +298,8 @@ header {
     box-shadow: 0px 1px 51px 800px rgba(0,0,0,0.34);
 }
 
+
+
 .btn-cancelar {
     background-color: red;
     margin: 10px;
@@ -533,6 +535,13 @@ update-actives {
     padding: 10px;
     border-radius: 10px;
     border: 4px solid black;
+}
+
+@media screen and (max-width: 600px) {
+    .contenedor-tarjeta {
+        grid-template-columns: 0.4fr 1fr 1fr 0.1fr;
+    }
+
 }
 
 .button-listar {
