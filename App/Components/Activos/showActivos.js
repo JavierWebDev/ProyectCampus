@@ -8,10 +8,16 @@ export class showActive extends HTMLElement {
   }
   render() {
     this.innerHTML = /* html */ `
+
         <section id="ShowActive">
-            <div class="contenedor-inputs_buscar">
-                <input class="input-form" id="activoBuscado" placeholder=" digita el nombre del producto">
-                <button id="buscarActivo" class="button-filtrar"><box-icon name='search-alt-2' color='#ffffff' ></box-icon></button>
+            <div class="contenedor-titulo_principal">
+              <h1 class="titulo-formulario">Buscar Activos</h1>
+            </div>
+            <div class="cont-form_inputs">
+              <div class="contenedor-inputs_buscar">
+                  <input class="input-form" id="activoBuscado" placeholder=" digita el nombre del producto">
+                  <button id="buscarActivo" class="button-filtrar"><box-icon name='search-alt-2' color='#ffffff' ></box-icon></button>
+              </div>
             </div>
 
             <div id="activesFoundShow" class="contenedor-mostrar"></div>
