@@ -144,7 +144,7 @@ BtnListarCategorias.addEventListener("click", (e) => {
 
     EditarCategorias.style.display = "none"
     AnadirCategorias.style.display = "none"
-    EditarCategorias.style.display = "none"
+    EliminarCategorias.style.display = "none"
 
     e.preventDefault()
 })

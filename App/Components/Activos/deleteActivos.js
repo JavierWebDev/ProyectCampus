@@ -16,7 +16,7 @@ export class deleteActives extends HTMLElement {
               <div class="cont-form_inputs">
                 <div class="contenedor-inputs_buscar">
                     <input class="input-form" id="activoBuscadoEliminar" placeholder=" digita el nombre del producto">
-                    <button id="buscarActivoEliminar" class="button-filtrar"><box-icon name='search-alt-2' color='#ffffff' ></box-icon></button>
+                    <button id="buscarActivoEliminar" class="button-filtrar"><box-icon name='trash' type='solid' color='#ffffff' ></box-icon></button>
                 </div>
               </div>
     
